@@ -1,0 +1,160 @@
+/*顶部导航*/
+
+body{
+	background: url(../Images/top1/2.jpg);
+}
+h1 {
+  font-size: 2em;  
+}
+li{
+	list-style: none;
+}
+a,a:hover{
+	text-decoration: none;
+}
+.hide{
+	display: none;
+}
+.head{
+	width:100%;
+	height: auto;
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.head a{
+	color:#F9F7F7;
+	font-weight: bolder;
+}
+.headlogo a{
+	font-family: "黑体";
+  	color: #fff;
+}
+.headlogo{
+	width: 8%;
+	text-align:center;
+}
+
+.headlink li{
+	float: left;
+	height: 10%;
+    margin-left:15px;
+    margin-right: 10px;
+	margin-top: 7%;
+	display: block;
+	background: url(../Images/top1/main_link_ico.png) no-repeat;
+}
+.headlink li a{
+	color:#D9D4D4;	
+	
+	padding-left: 25px;
+}
+.headlink li.link_0{
+	background-position: 0 0;
+}
+.headlink li.link_1 {
+	background-position:0 -148px;
+}
+.headlink li.link_2{
+	background-position:0 -48px; 
+}
+.headlink li.link_3{
+	background-position:0 -188px; 
+}
+.headlink li.link_4{
+	background-position:0 -98px; 
+}
+/*顶部导航结束*/
+
+/*左侧导航开始*/
+.leftmenu{
+	width: 12%;
+	position:absolute;
+	top: 9%;
+	left:0px;
+	bottom: 0;
+	z-index: 5;
+	overflow-x:hidden;
+	overflow-y:auto;
+	background: rgba(0, 0, 0, 0.6);
+	
+}
+.leftmenu dl{
+	
+	margin-bottom: 0px
+}
+.leftmenu dl dt{
+	width: 100%;
+	height: 100%;
+	line-height: 200%;
+	text-indent: 10%;
+	font-weight: bold;
+	color:#fff;
+	background: rgba(0, 0, 0, 0.8) url(../Images/top1/2.png) no-repeat;
+	background-position: right 100%;
+	cursor: pointer;
+}
+.leftmenu dl dd{
+	background: rgba(0, 0, 0, 0.4);
+	width: 100%;
+
+}
+.leftmenu dl dd ul li{
+	width: 100%;
+	height: 100%;
+	float: right;
+	text-indent: 0%;
+
+
+}
+.leftmenu dl dd ul li a{
+	width:100%;
+	height: 100%;
+	line-height: 24px;
+	display: block;    /*边框问题*/
+
+
+}
+.leftmenu dl dd ul li a:hover{
+	color:#A8A5A5;
+	border-top: 1px solid #4D4B4B;
+	border-bottom: 1px solid #4D4B4B;
+	border-left: 1px solid #4D4B4B;
+	
+
+}
+.leftmenu dl dd ul li a.current-menuleft{
+	background:rgba(0, 0, 0, 0.8);
+	font-weight: bold;
+}
+/*左侧导航结束*/
+
+
+/*右边主体*/
+.rightmain{
+	position:absolute;
+	top:8%;
+	left:12%;
+	bottom:0;
+	right:0;
+	overflow: hidden;
+	/*可能会出现滚动条*/
+}
+.rightmain1{
+	position:absolute;
+	top:8%;
+	left:0;
+	bottom:0;
+	right:0;
+	overflow: hidden;
+	/*可能会出现滚动条*/
+}
+
+.rightcontent{
+	height:100%;
+	padding: 0.5% 0 0 0.5%;
+	
+}
+.rightcontent iframe{
+	width:100%;
+	height:100%;
+}

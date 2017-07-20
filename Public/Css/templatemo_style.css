@@ -1,0 +1,54 @@
+
+
+*, body { font-family: 'Open Sans', sans-serif; }
+body { margin-bottom: 30px; }
+h1 {
+	font-weight: 300;
+	font-size: 36px;
+	line-height: normal;
+	margin: auto;
+	margin-top: 30px;
+	text-align: center;
+}
+
+.green { color: #3C3; }
+.table { margin-bottom: 0; }
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, 
+.table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+	vertical-align: middle;
+}
+.templatemo-form-list-container { max-width: 1000px; }
+.templatemo-container {
+	background-color: rgba(193, 255, 246, 0.8);
+	border: 1px solid #dedede;
+	border-radius: 8px;
+	margin: 0 auto;
+	padding: 30px;
+}
+/*----------------------------------
+10. Media Queries
+---------------------------------------*/
+@media screen and (max-width: 767px) {
+	.templatemo-header .col-md-12 {	line-height: 20px; }
+	.templatemo-header .btn { margin-bottom: 15px; }
+	.templatemo-container {	padding: 15px; }
+	.control-wrapper label.fa-label { top: 6px;	}
+	.templatemo-header form { margin-top: 0; }
+}
+@media screen and (max-width: 991px) {
+	.templatemo-login-form-2 .templatemo-one-signin {
+		border-right: none;
+		border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+	}
+	.templatemo-login-form-2 .templatemo-other-signin {	padding-top: 30px; }
+	.templatemo-login-form-2 .form-group:last-child { margin-bottom: 30px; }
+	.templatemo-create-account .col-md-6, .templatemo-create-account .col-md-12 {
+		padding-top: 5px;
+		padding-bottom: 15px;
+	}
+	.templatemo-create-account .form-group { margin-bottom: 0; }
+	.templatemo-radio-group { margin-top: 0; }
+	.templatemo-contact-form-2 .checkbox {	margin-bottom: 15px; }
+	.templatemo-contact-form-2 { padding: 30px 30px 0 30px;	}
+	.templatemo-radio-container { margin-left: 30px; }
+}

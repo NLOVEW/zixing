@@ -1,0 +1,18 @@
+[ 2017-07-20T11:15:33+08:00 ] 127.0.0.1 /index.php/Home/Look/undefined
+ERR: 非法操作:undefined
+
+[ 2017-07-20T11:15:36+08:00 ] 127.0.0.1 /index.php/Home/Look/undefined
+ERR: 非法操作:undefined
+
+[ 2017-07-20T11:54:14+08:00 ] 127.0.0.1 /index.php/Home/build/pdf.worker.js
+ERR: 无法加载控制器:Build
+
+[ 2017-07-20T11:54:16+08:00 ] 127.0.0.1 /index.php/Home/build/pdf.worker.js
+ERR: 无法加载控制器:Build
+
+[ 2017-07-20T11:54:21+08:00 ] 127.0.0.1 /index.php/Home/build/pdf.worker.js
+ERR: 无法加载控制器:Build
+
+[ 2017-07-20T13:55:17+08:00 ] 127.0.0.1 /index.php/Home/Look/__Resource__/Pdf/test.pdf
+ERR: 非法操作:__Resource__
+

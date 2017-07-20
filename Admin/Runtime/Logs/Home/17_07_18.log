@@ -1,0 +1,51 @@
+[ 2017-07-18T09:49:25+08:00 ] ::1 /zixing/admin.php/Home/index
+ERR: 无法加载控制器:Index
+
+[ 2017-07-18T09:49:43+08:00 ] ::1 /zixing/admin.php/Home/Index/verify
+ERR: 无法加载控制器:Index
+
+[ 2017-07-18T09:52:42+08:00 ] ::1 /zixing/admin.php/Home/Index/verify
+ERR: 无法加载控制器:Index
+
+[ 2017-07-18T09:52:52+08:00 ] ::1 /zixing/admin.php/Home/Index/verify?0.6600035652203247
+ERR: 无法加载控制器:Index
+
+[ 2017-07-18T09:52:53+08:00 ] ::1 /zixing/admin.php/Home/Index/verify?0.6617221726616402
+ERR: 无法加载控制器:Index
+
+[ 2017-07-18T09:54:07+08:00 ] ::1 /zixing/admin.php/Home/Admin/lib/jquery/1.9.1/jquery.min.js
+ERR: 非法操作:lib
+
+[ 2017-07-18T09:54:07+08:00 ] ::1 /zixing/admin.php/Home/Admin/static/h-ui.admin/js/H-ui.admin.js
+ERR: 非法操作:static
+
+[ 2017-07-18T09:54:08+08:00 ] ::1 /zixing/admin.php/Home/Admin/welcome.html
+ERR: 非法操作:welcome
+
+[ 2017-07-18T09:54:08+08:00 ] ::1 /zixing/admin.php/Home/Admin/static/h-ui/js/H-ui.min.js
+ERR: 非法操作:static
+
+[ 2017-07-18T09:54:08+08:00 ] ::1 /zixing/admin.php/Home/Admin/lib/jquery.contextmenu/jquery.contextmenu.r2.js
+ERR: 非法操作:lib
+
+[ 2017-07-18T09:54:08+08:00 ] ::1 /zixing/admin.php/Home/Admin/lib/layer/2.4/layer.js
+ERR: 非法操作:lib
+
+[ 2017-07-18T09:54:08+08:00 ] ::1 /zixing/admin.php/Home/Admin/static/h-ui/js/H-ui.min.js
+ERR: 非法操作:static
+
+[ 2017-07-18T09:54:08+08:00 ] ::1 /zixing/admin.php/Home/Admin/static/h-ui.admin/js/H-ui.admin.js
+ERR: 非法操作:static
+
+[ 2017-07-18T09:54:08+08:00 ] ::1 /zixing/admin.php/Home/Admin/lib/jquery.contextmenu/jquery.contextmenu.r2.js
+ERR: 非法操作:lib
+
+[ 2017-07-18T09:56:47+08:00 ] ::1 /zixing/admin.php/Home/Admin/welcome.html
+ERR: 非法操作:welcome
+
+[ 2017-07-18T09:56:51+08:00 ] ::1 /zixing/admin.php/Home/Admin/member-add.html
+ERR: 非法操作:member-add
+
+[ 2017-07-18T09:57:06+08:00 ] ::1 /zixing/admin.php/Home/Admin/system-base.html
+ERR: 非法操作:system-base
+
