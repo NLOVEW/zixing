@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>HTML5在线PDF阅读器DEMO演示</title>
+    <title>在线浏览</title>
     <load href="__PUBLIC__/Pdfconfig/viewer.css"/>
     <load href="__PUBLIC__/Pdfconfig/compatibility.js"/>
     <load href="__PUBLIC__/Pdfconfig/locale/locale.properties"/>
@@ -12,7 +12,13 @@
     <load href="__PUBLIC__/Js/pdf.worker.js"/>
     <load href="__PUBLIC__/Pdfconfig/debugger.js"/>
   </head>
-  <body tabindex="1" class="loadingInProgress">
+  <!--防止复制文字-->
+  <script language="Javascript">
+      document.oncontextmenu=new Function("event.returnValue=false");
+      document.onselectstart=new Function("event.returnValue=false");
+  </script>
+
+  <body tabindex="1" class="loadingInProgress" style="background:url('__PUBLIC__/Images/look_bg.jpg');">
     <div id="outerContainer">
 	<div style="text-align:center;clear:both">
     </div>
@@ -127,7 +133,7 @@
               </div>
               <div id="toolbarViewerRight">
                 <button id="presentationMode" class="toolbarButton presentationMode hiddenLargeView" title="当前比例" tabindex="31" data-l10n-id="presentation_mode">
-                  <span data-l10n-id="presentation_mode_label">当前比例</span>
+                  <span data-l10n-id="presentation_mode_label">全屏显示</span>
                 </button>
 
                 <button id="openFile" class="toolbarButton openFile hiddenLargeView" title="打开" tabindex="32" data-l10n-id="open_file">
@@ -158,7 +164,7 @@
                   </div>
                   <span id="scaleSelectContainer" class="dropdownToolbarButton">
                      <select id="scaleSelect" title="缩放" tabindex="23" data-l10n-id="zoom">
-                      <option id="pageAutoOption" title="" value="auto" selected="selected" data-l10n-id="page_scale_auto">自动缩放</option>
+                      <option id="pageAutoOption" title="" value="auto" selected="selected" data-l10n-id="page_scale_auto">自动排版</option>
                       <option id="pageActualOption" title="" value="page-actual" data-l10n-id="page_scale_actual">实际大小</option>
                       <option id="pageFitOption" title="" value="page-fit" data-l10n-id="page_scale_fit">适应页面</option>
                       <option id="pageWidthOption" title="" value="page-width" data-l10n-id="page_scale_width">最大宽度</option>
@@ -366,7 +372,7 @@
 <script>
     'use strict';
 
-    var DEFAULT_URL = '__PUBLIC__/Resource/Pdf/ppt.pdf';
+    var DEFAULT_URL = '<{$path}>';
     var DEFAULT_SCALE_DELTA = 1.1;
     var MIN_SCALE = 0.25;
     var MAX_SCALE = 10.0;
