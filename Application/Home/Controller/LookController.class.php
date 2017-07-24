@@ -6,12 +6,13 @@
         function lookPdf(){
             $this->display();
         }
-
-        function pdfView(){
+        function lookWord(){
             $this->display();
         }
-
-        function lookWord(){
+        function viewer(){
+            $this->display();
+        }
+        function viewer2(){
             $this->display();
         }
     }
