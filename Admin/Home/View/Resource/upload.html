@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=0.5,maximum-scale=1.0,user-scalable=no" />
+    <title>上传资源</title>
+    <load href="__PUBLIC__/UploadConfig/webuploader.css"/>
+    <load href="__PUBLIC__/UploadConfig/webuploader.js"/>
+    <load href="__PUBLIC__/Bootstrap/css/bootstrap.css"/>
+    <load href="__PUBLIC__/Bootstrap/css/bootstrap-theme.css"/>
+    <load href="__PUBLIC__/Css/font-awesome.min.css"/>
+    <load href="__PUBLIC__/Css/templatemo_style.css"/>
+    <load href="__PUBLIC__/Js/jquery-1.8.2.min.js"/>
+</head>
+<body style="background: url('__PUBLIC__/Images/admin.jpg')">
+    <h1 class="green">上传文件</h1>
+    <div class="container center-block templatemo-form-list-container templatemo-container lead">
+        <form class="form-horizontal" action="__APP__/Home/Resource/completeUpload" method="post">
+            <div class="form-group">
+                <label for="input1" class="col-sm-2 control-label"> 所&nbsp;属&nbsp;课&nbsp;程</label>
+                <div class="col-sm-10">
+                    <select name="course" class="form-control" style="height: 40px;width: 200px" id="input1">
+                        <option value="C++">C++</option>
+                        <option value="JAVA">JAVA</option>
+                        <option value="Python">Python</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input2" class="col-sm-2 control-label"> 文&nbsp;件&nbsp;类&nbsp;型</label>
+                <div class="col-sm-10">
+                    <select name="type" class="form-control" style="height: 40px;width: 200px" id="input2">
+                        <option value="MP4">MP4</option>
+                        <option value="PDF">PDF</option>
+                        <option value="PPT">PPT</option>
+                        <option value="Word">Word</option>
+                        <option value="Execl">Execl</option>
+                        <option value="zip">压缩文件</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input3" class="col-sm-2 control-label"> 检索关键字</label>
+                <div class="col-sm-10">
+                   <input type="text" class="form-control" id="input3" placeholder="请输入检索关键字" style="height: 40px;width: 200px" id="input3">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

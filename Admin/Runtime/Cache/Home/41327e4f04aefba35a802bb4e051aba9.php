@@ -1,245 +1,158 @@
-<?php if (!defined('THINK_PATH')) exit();?>﻿<!doctype html>
-<html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
-<style>
-html,body {
-	margin:0;
-	overflow:hidden;
-	width:100%;
-	height:100%;
-	cursor:none;
-	background:black;
-	background:linear-gradient(to bottom,#000000 0%,#5788fe 100%);
-}
-.filter {
-	width:100%;
-	height:100%;
-	position:absolute;
-	top:0;
-	left:0;
-	background:#fe5757;
-	animation:colorChange 30s ease-in-out infinite;
-	animation-fill-mode:both;
-	mix-blend-mode:overlay;
-}
-@keyframes colorChange {
-	0%,100% {
-	opacity:0;
-}
-50% {
-	opacity:.9;
-}
-}.landscape {
-	position:absolute;
-	bottom:0px;
-	left:0;
-	width:100%;
-	height:100%;
-background-image:url("/zixing/Public/Images/xkbg.png");
-	background-size:1000px 250px;
-	background-repeat:repeat-x;
-	background-position:center bottom;
-}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,hight=device-hight,minimum-scale=1.0,maximum-scale=1.0,ser-scalable=none"/>
+<title>welcome</title>
+
+<style type="text/css">
+body { margin: 0; padding: 0; position: relative; background-image: url('/Public/Images/welcome/xh.jpg'); background-position: center;  width: 100%; height: 100%; background-size: 100% 100%; }
 </style>
 </head>
-<body>
+<body id="body" onLoad="init()">
+<script type="text/javascript" src="/Public/Js/welcome_ThreeCanvas.js"></script>
+<script type="text/javascript" src="/Public/Js/welcome_Snow.js"></script>
+<script type="text/javascript">
+	var SCREEN_WIDTH = window.innerWidth;//
+	var SCREEN_HEIGHT = window.innerHeight;
+	var container;
+	var particle;//粒子
 
-<div class="landscape"></div>
-<div class="filter"></div>
-<canvas id="canvas"></canvas>
+	var camera;
+	var scene;
+	var renderer;
 
-<script>
-function Star(id, x, y){
-	this.id = id;
-	this.x = x;
-	this.y = y;
-	this.r = Math.floor(Math.random()*2)+1;
-	var alpha = (Math.floor(Math.random()*10)+1)/10/2;
-	this.color = "rgba(255,255,255,"+alpha+")";
-}
+	var starSnow = 1;
 
-Star.prototype.draw = function() {
-	ctx.fillStyle = this.color;
-	ctx.shadowBlur = this.r * 2;
-	ctx.beginPath();
-	ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
-	ctx.closePath();
-	ctx.fill();
-}
+	var particles = []; 
 
-Star.prototype.move = function() {
-	this.y -= .15;
-	if (this.y <= -10) this.y = HEIGHT + 10;
-	this.draw();
-}
+	var particleImage = new Image();
+	//THREE.ImageUtils.loadTexture( "img/ParticleSmoke.png" );
+	particleImage.src = '/Public/Images/welcome/ParticleSmoke.png';
+	
 
-Star.prototype.die = function() {
-    stars[this.id] = null;
-    delete stars[this.id];
-}
+	function init() {
+		//alert("message3");
+		container = document.createElement('div');//container：画布实例;
+		document.body.appendChild(container);
 
+		camera = new THREE.PerspectiveCamera( 60, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
+		camera.position.z = 1000;
+		//camera.position.y = 50;
 
-function Dot(id, x, y, r) {
-	this.id = id;
-	this.x = x;
-	this.y = y;
-	this.r = Math.floor(Math.random()*5)+1;
-	this.maxLinks = 2;
-	this.speed = .5;
-	this.a = .5;
-	this.aReduction = .005;
-	this.color = "rgba(255,255,255,"+this.a+")";
-	this.linkColor = "rgba(255,255,255,"+this.a/4+")";
+		scene = new THREE.Scene();
+		scene.add(camera);
+			
+		renderer = new THREE.CanvasRenderer();
+		renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+		var material = new THREE.ParticleBasicMaterial( { map: new THREE.Texture(particleImage) } );
 
-	this.dir = Math.floor(Math.random()*140)+200;
-}
+		for (var i = 0; i < 500; i++) {
 
-Dot.prototype.draw = function() {
-	ctx.fillStyle = this.color;
-	ctx.shadowBlur = this.r * 2;
-	ctx.beginPath();
-	ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
-	ctx.closePath();
-	ctx.fill();
-}
+			particle = new Particle3D( material);
+			particle.position.x = Math.random() * 2000-1000;
+			
+			particle.position.z = Math.random() * 2000-1000;
+			particle.position.y = Math.random() * 2000-1000;
+			particle.scale.x = particle.scale.y =  1;
+			scene.add( particle );
+			
+			particles.push(particle); 
+		}
 
-Dot.prototype.link = function() {
-	if (this.id == 0) return;
-	var previousDot1 = getPreviousDot(this.id, 1);
-	var previousDot2 = getPreviousDot(this.id, 2);
-	var previousDot3 = getPreviousDot(this.id, 3);
-	if (!previousDot1) return;
-	ctx.strokeStyle = this.linkColor;
-	ctx.moveTo(previousDot1.x, previousDot1.y);
-	ctx.beginPath();
-	ctx.lineTo(this.x, this.y);
-	if (previousDot2 != false) ctx.lineTo(previousDot2.x, previousDot2.y);
-	if (previousDot3 != false) ctx.lineTo(previousDot3.x, previousDot3.y);
-	ctx.stroke();
-	ctx.closePath();
-}
-
-function getPreviousDot(id, stepback) {
-	if (id == 0 || id - stepback < 0) return false;
-	if (typeof dots[id - stepback] != "undefined") return dots[id - stepback];
-	else return false;//getPreviousDot(id - stepback);
-}
-
-Dot.prototype.move = function() {
-	this.a -= this.aReduction;
-	if (this.a <= 0) {
-		this.die();
-		return
-	}
-	this.color = "rgba(255,255,255,"+this.a+")";
-	this.linkColor = "rgba(255,255,255,"+this.a/4+")";
-	this.x = this.x + Math.cos(degToRad(this.dir))*this.speed,
-	this.y = this.y + Math.sin(degToRad(this.dir))*this.speed;
-
-	this.draw();
-	this.link();
-}
-
-Dot.prototype.die = function() {
-    dots[this.id] = null;
-    delete dots[this.id];
-}
-
-
-var canvas  = document.getElementById('canvas'),
-	ctx = canvas.getContext('2d'),
-	WIDTH,
-	HEIGHT,
-	mouseMoving = false,
-	mouseMoveChecker,
-	mouseX,
-	mouseY,
-	stars = [],
-	initStarsPopulation = 80,
-	dots = [],
-	dotsMinDist = 2,
-	maxDistFromCursor = 50;
-
-setCanvasSize();
-init();
-
-function setCanvasSize() {
-	WIDTH = document.documentElement.clientWidth,
-    HEIGHT = document.documentElement.clientHeight;                      
-
-	canvas.setAttribute("width", WIDTH);
-	canvas.setAttribute("height", HEIGHT);
-}
-
-function init() {
-	ctx.strokeStyle = "white";
-	ctx.shadowColor = "white";
-	for (var i = 0; i < initStarsPopulation; i++) {
-		stars[i] = new Star(i, Math.floor(Math.random()*WIDTH), Math.floor(Math.random()*HEIGHT));
-		//stars[i].draw();
-	}
-	ctx.shadowBlur = 0;
-	animate();
-}
-
-function animate() {
-    ctx.clearRect(0, 0, WIDTH, HEIGHT);
-
-    for (var i in stars) {
-    	stars[i].move();
-    }
-    for (var i in dots) {
-    	dots[i].move();
-    }
-    drawIfMouseMoving();
-    requestAnimationFrame(animate);
-}
-
-window.onmousemove = function(e){
-	mouseMoving = true;
-	mouseX = e.clientX;
-	mouseY = e.clientY;
-	clearInterval(mouseMoveChecker);
-	mouseMoveChecker = setTimeout(function() {
-		mouseMoving = false;
-	}, 100);
-}
-
-
-function drawIfMouseMoving(){
-	if (!mouseMoving) return;
-
-	if (dots.length == 0) {
-		dots[0] = new Dot(0, mouseX, mouseY);
-		dots[0].draw();
-		return;
+		container.appendChild( renderer.domElement );
+		document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+		document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+		document.addEventListener( 'touchend', onDocumentTouchEnd, false );
+		
+		setInterval( loop, 1000 / 60 );
+		
 	}
 
-	var previousDot = getPreviousDot(dots.length, 1);
-	var prevX = previousDot.x; 
-	var prevY = previousDot.y; 
+	var touchStartX;
+	var touchFlag = 0;//储存当前是否滑动的状态;
+	var touchSensitive = 80;//检测滑动的灵敏度;
+	function onDocumentTouchStart( event ) {
 
-	var diffX = Math.abs(prevX - mouseX);
-	var diffY = Math.abs(prevY - mouseY);
+		if ( event.touches.length == 1 ) {
 
-	if (diffX < dotsMinDist || diffY < dotsMinDist) return;
+			event.preventDefault();//取消默认关联动作;
+			touchStartX = 0;
+			touchStartX = event.touches[ 0 ].pageX ;
+		}
+	}
 
-	var xVariation = Math.random() > .5 ? -1 : 1;
-	xVariation = xVariation*Math.floor(Math.random()*maxDistFromCursor)+1;
-	var yVariation = Math.random() > .5 ? -1 : 1;
-	yVariation = yVariation*Math.floor(Math.random()*maxDistFromCursor)+1;
-	dots[dots.length] = new Dot(dots.length, mouseX+xVariation, mouseY+yVariation);
-	dots[dots.length-1].draw();
-	dots[dots.length-1].link();
-}
-//setInterval(drawIfMouseMoving, 17);
 
-function degToRad(deg) {
-	return deg * (Math.PI / 180);
-}
+	function onDocumentTouchMove( event ) {
+
+		if ( event.touches.length == 1 ) {
+			event.preventDefault();
+			var direction = event.touches[ 0 ].pageX - touchStartX;
+			if (Math.abs(direction) > touchSensitive) {
+				if (direction>0) {touchFlag = 1;}
+				else if (direction<0) {touchFlag = -1;};
+			}	
+		}
+	}
+
+	function onDocumentTouchEnd (event) {
+
+		var direction = event.changedTouches[ 0 ].pageX - touchStartX;
+
+		changeAndBack(touchFlag);
+	}
+
+
+	function changeAndBack (touchFlag) {
+		var speedX = 25*touchFlag;
+		touchFlag = 0;
+		for (var i = 0; i < particles.length; i++) {
+			particles[i].velocity=new THREE.Vector3(speedX,-10,0);
+		}
+		var timeOut = setTimeout(";", 800);
+		clearTimeout(timeOut);
+
+		var clearI = setInterval(function () {
+			if (touchFlag) {
+				clearInterval(clearI);
+				return;
+			};
+			speedX*=0.8;
+
+			if (Math.abs(speedX)<=1.5) {
+				speedX=0;
+				clearInterval(clearI);
+			};
+			
+			for (var i = 0; i < particles.length; i++) {
+				particles[i].velocity=new THREE.Vector3(speedX,-10,0);
+			}
+		},100);
+
+
+	}
+
+
+	function loop() {
+		for(var i = 0; i<particles.length; i++){
+			var particle = particles[i]; 
+			particle.updatePhysics(); 
+
+			with(particle.position)
+			{
+				if((y<-1000)&&starSnow) {y+=2000;}
+
+				if(x>1000) x-=2000; 
+				else if(x<-1000) x+=2000;
+				if(z>1000) z-=2000; 
+				else if(z<-1000) z+=2000;
+			}			
+		}
+
+		camera.lookAt(scene.position); 
+
+		renderer.render( scene, camera );
+	}
 </script>
-</div>
 </body>
 </html>

@@ -4,12 +4,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
     <title>自兴人工智能学院管理后台登录</title>
-    <link rel="stylesheet" type="text/css" href="/zixing/Public/Css/login.css" />
-    <script type="text/javascript" src="/zixing/Public/Js/jQuery1.7.js"></script>
-    <script type="text/javascript" src="/zixing/Public/Js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="/zixing/Public/Js/jquery1.42.min.js"></script>
-    <script type="text/javascript" src="/zixing/Public/Js/jquery.SuperSlide.js"></script>
-    <script type="text/javascript" src="/zixing/Public/Js/Validform_v5.3.2_min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Public/Css/login.css" />
+    <script type="text/javascript" src="/Public/Js/jQuery1.7.js"></script>
+    <script type="text/javascript" src="/Public/Js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/Public/Js/jquery1.42.min.js"></script>
+    <script type="text/javascript" src="/Public/Js/jquery.SuperSlide.js"></script>
+    <script type="text/javascript" src="/Public/Js/Validform_v5.3.2_min.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
 	  var $tab_li = $('#tab ul li');
@@ -75,7 +75,7 @@ $(function(){
           <label>验证码：</label>
           <input type="text" id="admin_code_hide" name="code"  placeholder="请输入验证码" />
           <!--验证码区域-->
-          <img id="img_verify" src="/zixing/admin.php/Home/Login/verify" title="点击刷新" alt="验证码图"/>
+          <img id="img_verify" src="/admin.php/Home/Login/verify" title="点击刷新" alt="验证码图"/>
         </div>
         <div id="remember">
           <input type="checkbox" name="remeber" style="width: 15px;height: 15px">
@@ -92,8 +92,8 @@ $(function(){
 <div class="bottom">©2017   海冰科技</div>
 <div class="screenbg">
   <ul>
-    <li><a href="javascript:;"><img src="/zixing/Public/Images/1.jpg"></a></li>
-    <li><a href="javascript:;"><img src="/zixing/Public/Images/2.jpg"></a></li>
+    <li><a href="javascript:;"><img src="/Public/Images/1.jpg"></a></li>
+    <li><a href="javascript:;"><img src="/Public/Images/2.jpg"></a></li>
   </ul>
 </div>
 </body>
@@ -124,7 +124,7 @@ $(function(){
       }else if(code==''){
           alert("验证码不能为空");
       }else{
-          document.getElementById("submit_form").action="/zixing/admin.php/Home/Admin/index";
+          document.getElementById("submit_form").action="/admin.php/Home/Admin/index";
       }
   }
 </script>

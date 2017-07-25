@@ -22,10 +22,11 @@
                      */
                     session("username",$username);
                     $this->assign('username',$username);
-                    $this->display();
                 }
             }
-
-
+            $this->display();
+        }
+        public function welcome(){
+            $this->display();
         }
     }

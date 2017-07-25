@@ -40,4 +40,8 @@
             $this->assign('path',$outputPath);
             $this->display();
         }
+
+        function lookVideo(){
+            $this->display();
+        }
     }
