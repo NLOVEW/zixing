@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="/Public/static/h-ui.admin/css/H-ui.admin.css" />
     <link rel="stylesheet" type="text/css" href="/Public/lib/Hui-iconfont/1.0.8/iconfont.css" />
     <link rel="stylesheet" type="text/css" href="/Public/static/h-ui.admin/skin/default/skin.css" />
-    <link rel="stylesheet" type="text/css" href="/Public/static/h-ui.admin/css/style.css" />
     <!--[if IE 6]>
     <script type="text/javascript" src="/Public/lib/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
@@ -57,8 +56,8 @@
             <dd>
                 <ul>
                     <li><a data-href="/admin.php/Home/Resource/upload" data-title="上传资源" href="javascript:void(0)">上传资源</a></li>
-                    <li><a data-href="#" data-title="浏览资源" href="javascript:void(0)">浏览资源</a></li>
-                    <li><a data-href="#" data-title="资源使用统计" href="javascript:void(0)">资源使用统计</a></li>
+                    <li><a data-href="/admin.php/Home/Resource/searchResource" data-title="浏览资源" href="javascript:void(0)">浏览资源</a></li>
+                    <li><a data-href="/admin.php/Home/Resource/totalRecord" data-title="资源使用统计" href="javascript:void(0)">资源使用统计</a></li>
                 </ul>
             </dd>
         </dl>
@@ -66,7 +65,7 @@
             <dt><i class="Hui-iconfont">&#xe61a;</i> 课程管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="#" data-title="查看课程" href="javascript:void(0)">查看课程</a></li>
+                    <li><a data-href="/admin.php/Home/Course/lookCourse" data-title="查看课程" href="javascript:void(0)">查看课程</a></li>
                     <li><a data-href="#" data-title="添加课程" href="javascript:void(0)">添加课程</a></li>
                 </ul>
             </dd>
@@ -119,52 +118,11 @@
         <li id="closeall">关闭全部 </li>
     </ul>
 </div>
-<!--_footer 作为公共模版分离出去-->
+
 <script type="text/javascript" src="/Public/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/Public/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="/Public/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="/Public/static/h-ui.admin/js/H-ui.admin.js"></script>
-
-<!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="/Public/lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
-<!--<script type="text/javascript">-->
-    <!--$(function(){-->
-
-    <!--});-->
-
-    <!--/*资讯-添加*/-->
-    <!--function article_add(title,url){-->
-        <!--var index = layer.open({-->
-            <!--type: 2,-->
-            <!--title: title,-->
-            <!--content: url-->
-        <!--});-->
-        <!--layer.full(index);-->
-    <!--}-->
-    <!--/*图片-添加*/-->
-    <!--function picture_add(title,url){-->
-        <!--var index = layer.open({-->
-            <!--type: 2,-->
-            <!--title: title,-->
-            <!--content: url-->
-        <!--});-->
-        <!--layer.full(index);-->
-    <!--}-->
-    <!--/*产品-添加*/-->
-    <!--function product_add(title,url){-->
-        <!--var index = layer.open({-->
-            <!--type: 2,-->
-            <!--title: title,-->
-            <!--content: url-->
-        <!--});-->
-        <!--layer.full(index);-->
-    <!--}-->
-    <!--/*用户-添加*/-->
-    <!--function member_add(title,url,w,h){-->
-        <!--layer_show(title,url,w,h);-->
-    <!--}-->
-
-
-<!--//</script>-->
 </body>
 </html>

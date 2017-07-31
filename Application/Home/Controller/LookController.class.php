@@ -5,7 +5,6 @@
     header("Content-type: text/html; charset=utf-8");
     class LookController extends Controller{
 
-
         function lookPdf(){
             $this->assign("path",'/Public/Resource/Pdf/test.pdf');
             $this->display();
