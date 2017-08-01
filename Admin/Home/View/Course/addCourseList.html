@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <load href="__PUBLIC__/Bootstrap/css/bootstrap.css"/>
+    <load href="__PUBLIC__/Bootstrap/css/bootstrap-theme.css"/>
+    <load href="__PUBLIC__/Css/font-awesome.min.css"/>
+    <load href="__PUBLIC__/Css/templatemo_style.css"/>
+    <title>添加课程</title>
+</head>
+
+<body style="background-image:url('__PUBLIC__/Images/search/resource.jpg')">
+<h1 class="green">添加课程</h1>
+    <div class="container center-block templatemo-form-list-container templatemo-container lead">
+        <form class="form form-horizontal" method="post" id="submitForm">
+            <div class="form-group">
+                <label for="courseId" class="col-sm-2 control-label">课&nbsp;程&nbsp;编&nbsp;号</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="courseId" placeholder="请输入课程编号" style="height: 40px;width: 300px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="courseName" class="col-sm-2 control-label">课&nbsp;程&nbsp;名&nbsp;称</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="courseName" placeholder="请输入课程名称" style="height: 40px;width: 300px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="classHour" class="col-sm-2 control-label">教&nbsp;学&nbsp;课&nbsp;时</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="classHour" placeholder="请输入教学课时" style="height: 40px;width: 300px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="practiceHour" class="col-sm-2 control-label">实&nbsp;践&nbsp;课&nbsp;时</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="practiceHour" placeholder="请输入实践课时" style="height: 40px;width: 300px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="keyWord" class="col-sm-2 control-label">检索关键字</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="keyWord" placeholder="请输入关键字" style="height: 40px;width: 300px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="introduce" class="col-sm-2 control-label">课&nbsp;程&nbsp;简&nbsp;介</label>
+                <div class="col-sm-10">
+                   <textarea placeholder="请简单介绍课程......" id="introduce" rows="4" cols="40"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="essentials" class="col-sm-2 control-label">课&nbsp;程&nbsp;安&nbsp;排</label>
+                <div class="col-sm-10">
+                    <textarea placeholder="课程安排......" id="essentials" rows="5" cols="40"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success" onclick="check()" style="font-size: 20px">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+<script>
+    var courseId=document.getElementById('courseId');
+    var courseName=document.getElementById('courseName');
+    var classHour=document.getElementById('classHour');
+    var practiceHour=document.getElementById('practiceHour');
+    var keyWord=document.getElementById('keyWord');
+    var introduce=document.getElementById('introduce');
+    var essentials=document.getElementById('essentials');
+    var submitForm=document.getElementById('submitForm');
+
+   function check() {
+        if(courseId.value==''&&courseName.value==''&&classHour.value==''&&practiceHour.value==''&&keyWord.value==''&&introduce.value==''&&essentials.value==''){
+            alert("所有选项不得为空");
+        }else{
+            submitForm.action="__APP__/Home/Course/addCourse";
+        }
+   }
+
+</script>
+</html>
