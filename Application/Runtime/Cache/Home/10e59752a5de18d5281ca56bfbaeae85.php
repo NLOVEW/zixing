@@ -13,11 +13,9 @@
     <link rel="stylesheet" type="text/css" href="/Public/static/h-ui/css/H-ui.min.css" />
     <link rel="stylesheet" type="text/css" href="/Public/static/h-ui.admin/css/H-ui.admin.css" />
     <link rel="stylesheet" type="text/css" href="/Public/lib/Hui-iconfont/1.0.8/iconfont.css" />
-    <link rel="stylesheet" type="text/css" href="/Public/static/h-ui.admin/skin/default/skin.css" />
     <link rel="stylesheet" type="text/css" href="/Public/static/h-ui.admin/css/style.css" />
     <!--[if IE 6]>
     <script type="text/javascript" src="/Public/lib/DD_belatedPNG_0.0.8a-min.js"></script>
-    <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
     <title>个人中心</title>
 </head>
@@ -46,9 +44,9 @@
             <dt><i class="Hui-iconfont">&#xe60d;</i> 我的账户<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="#" data-title="个人信息" href="javascript:;">个人信息</a></li>
-                    <li><a data-href="#" data-title="修改密码" href="javascript:;">修改密码</a></li>
-                    <li><a data-href="#" data-title="登录统计" href="javascript:;">登录统计</a></li>
+                    <li><a data-href="/index.php/Home/Assistant/personal" data-title="个人信息" href="javascript:;">个人信息</a></li>
+                    <li><a data-href="/index.php/Home/Assistant/changePassword" data-title="修改密码" href="javascript:;">修改密码</a></li>
+                    <li><a data-href="/index.php/Home/Assistant/loginTotal" data-title="登录统计" href="javascript:;">登录统计</a></li>
                 </ul>
             </dd>
         </dl>
@@ -57,8 +55,7 @@
             <dt><i class="Hui-iconfont">&#xe620;</i> 资源浏览<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="#" data-title="检索资源" href="javascript:void(0)">检索资源</a></li>
-                    <li><a data-href="#" data-title="浏览资源" href="javascript:void(0)">浏览资源</a></li>
+                    <li><a data-href="/index.php/Home/Assistant/lookResource" data-title="浏览资源" href="javascript:void(0)">浏览资源</a></li>
                 </ul>
             </dd>
         </dl>

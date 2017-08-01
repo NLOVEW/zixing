@@ -19,7 +19,7 @@
     <script type="text/javascript" src="/Public/lib/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
-    <title>管理员中心</title>
+    <title>个人中心</title>
 </head>
 <body>
 <header class="navbar-wrapper">
@@ -46,8 +46,9 @@
             <dt><i class="Hui-iconfont">&#xe60d;</i> 我的账户<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="#" data-title="个人信息" href="javascript:;">个人信息</a></li>
-                    <li><a data-href="#" data-title="修改密码" href="javascript:;">修改密码</a></li>
+                    <li><a data-href="/index.php/Home/Student/personal" data-title="个人信息" href="javascript:;">个人信息</a></li>
+                    <li><a data-href="/index.php/Home/Student/changePassword" data-title="修改密码" href="javascript:;">修改密码</a></li>
+                    <li><a data-href="/index.php/Home/Student/loginTotal" data-title="登录统计" href="javascript:;">登录统计</a></li>
                 </ul>
             </dd>
         </dl>
@@ -56,7 +57,7 @@
             <dt><i class="Hui-iconfont">&#xe620;</i> 资源浏览<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="#" data-title="浏览资源" href="javascript:void(0)">浏览资源</a></li>
+                    <li><a data-href="/index.php/Home/Student/lookResource" data-title="浏览资源" href="javascript:void(0)">浏览资源</a></li>
                 </ul>
             </dd>
         </dl>
@@ -68,7 +69,7 @@
         <div class="Hui-tabNav-wp">
             <ul id="min_title_list" class="acrossTab cl">
                 <li class="active">
-                    <span title="欢迎界面" data-href="/index.php/Home/Admin/welcome">欢迎界面</span>
+                    <span title="欢迎界面" data-href="/index.php/Home/Student/welcome">欢迎界面</span>
                     <em></em>
                 </li>
             </ul>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <load href="__PUBLIC__/Bootstrap/css/bootstrap.css"/>
+    <load href="__PUBLIC__/Bootstrap/css/bootstrap-theme.css"/>
+    <load href="__PUBLIC__/Css/font-awesome.min.css"/>
+    <load href="__PUBLIC__/Css/templatemo_style.css"/>
+</head>
+<body class="bg-image" style="background-image:url('__PUBLIC__/Images/search/resource.jpg')">
+
+<h1 class="green">资源列表</h1>
+<div class="container center-block templatemo-form-list-container templatemo-container lead">
+    <div class="col-md-12 table-responsive">
+        <table class="table table-bordered table-hover" style="border-color: #00a0e9;text-align: center">
+            <thead>
+            <tr class="info">
+                <th style="text-align: center" title="点击排序">文件编号</th>
+                <th style="text-align: center" title="点击排序">文件名称</th>
+                <th style="text-align: center" title="点击排序">文件大小</th>
+                <th style="text-align: center">在线浏览</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="warning">
+                <td>10086</td>
+                <td>Java编程思想.pdf</td>
+                <td>50M</td>
+                <td><a href="#"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+            </tr>
+            <tr class="warning">
+                <td>10086</td>
+                <td>Java编程思想.pdf</td>
+                <td>50M</td>
+                <td><a href="#"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+            </tr>
+            <tr class="warning">
+                <td>10086</td>
+                <td>Java编程思想.pdf</td>
+                <td>50M</td>
+                <td><a href="#"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+            </tr>
+
+            </tbody>
+        </table>
+        <nav style="text-align: center">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+</body>
+<load href="__PUBLIC__/lib/jquery/1.9.1/jquery.min.js"/>
+<load href="__PUBLIC__/lib/datatables/1.10.0/jquery.dataTables.min.js"/>
+<script>
+    $(document).ready(function() {
+        $('.table').dataTable({
+            "bPaginate": false, //翻页功能
+            "bLengthChange": false, //改变每页显示数据数量
+            "bFilter": true, //过滤功能
+            "bSort": true, //排序功能
+            "bInfo": false,//页脚信息
+            "bAutoWidth": false,//自动宽度
+
+        });
+    });
+</script>
+</html>

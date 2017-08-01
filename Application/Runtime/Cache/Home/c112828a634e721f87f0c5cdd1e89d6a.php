@@ -46,9 +46,9 @@
             <dt><i class="Hui-iconfont">&#xe60d;</i> 我的账户<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="#" data-title="个人信息" href="javascript:;">个人信息</a></li>
-                    <li><a data-href="#" data-title="修改密码" href="javascript:;">修改密码</a></li>
-                    <li><a data-href="#" data-title="登录统计" href="javascript:;">登录统计</a></li>
+                    <li><a data-href="/index.php/Home/Manager/personal" data-title="个人信息" href="javascript:;">个人信息</a></li>
+                    <li><a data-href="/index.php/Home/Manager/changePassword" data-title="修改密码" href="javascript:;">修改密码</a></li>
+                    <li><a data-href="/index.php/Home/Manager/loginTotal" data-title="登录统计" href="javascript:;">登录统计</a></li>
                 </ul>
             </dd>
         </dl>
@@ -57,37 +57,12 @@
             <dt><i class="Hui-iconfont">&#xe620;</i> 资源管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="#" data-title="检索资源" href="javascript:void(0)">检索资源</a></li>
-                    <li><a data-href="#" data-title="浏览资源" href="javascript:void(0)">浏览资源</a></li>
-                    <li><a data-href="#" data-title="上传资源" href="javascript:void(0)">上传资源</a></li>
-                    <li><a data-href="#" data-title="资源使用统计" href="javascript:void(0)">资源使用统计</a></li>
+                    <li><a data-href="/index.php/Home/Manager/resource" data-title="浏览资源" href="javascript:void(0)">浏览资源</a></li>
+                    <li><a data-href="/index.php/Home/Manager/upload" data-title="上传资源" href="javascript:void(0)">上传资源</a></li>
+                    <li><a data-href="/index.php/Home/Manager/totalRecord" data-title="资源使用统计" href="javascript:void(0)">资源使用统计</a></li>
                 </ul>
             </dd>
         </dl>
-
-        <dl id="menu-course">
-            <dt><i class="Hui-iconfont">&#xe61a;</i> 课程管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a data-href="#" data-title="查看课程" href="javascript:void(0)">查看课程</a></li>
-                    <li><a data-href="#" data-title="添加课程" href="javascript:void(0)">添加课程</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <!--<dl id="menu-admin">-->
-            <!--<dt><i class="Hui-iconfont">&#xe62d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>-->
-            <!--<dd>-->
-                <!--<ul>-->
-                    <!--&lt;!&ndash;<li><a data-href="admin-role.html" data-title="角色管理" href="javascript:void(0)">角色管理</a></li>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<li><a data-href="admin-permission.html" data-title="权限管理" href="javascript:void(0)">权限管理</a></li>&ndash;&gt;-->
-                    <!--<li><a data-href="#" data-title="添加用户" href="javascript:void(0)">添加用户</a></li>-->
-                    <!--<li><a data-href="#" data-title="学生列表" href="javascript:void(0)">学生列表</a></li>-->
-                    <!--<li><a data-href="#" data-title="助教列表" href="javascript:void(0)">助教列表</a></li>-->
-                    <!--<li><a data-href="#" data-title="讲师列表" href="javascript:void(0)">讲师列表</a></li>-->
-                    <!--<li><a data-href="#" data-title="课程负责人列表" href="javascript:void(0)">课程负责人列表</a></li>-->
-                <!--</ul>-->
-            <!--</dd>-->
-        <!--</dl>-->
     </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
