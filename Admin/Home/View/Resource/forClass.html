@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <load href="__PUBLIC__/Css/font-awesome.min.css"/>
+    <load href="__PUBLIC__/Css/templatemo_style.css"/>
+    <load href="__PUBLIC__/lib/jquery/1.9.1/jquery.min.js"/>
+    <load href="__PUBLIC__/SelectConfig/bootstrap.min.js"/>
+    <load href="__PUBLIC__/SelectConfig/bootstrap.min.css"/>
+    <load href="__PUBLIC__/SelectConfig/bootstrap-select.css"/>
+    <load href="__PUBLIC__/SelectConfig/bootstrap-select.js"/>
+    <load href="__PUBLIC__/SelectConfig/i18n/*"/>
+</head>
+<body class="bg-image" style="background-image:url('__PUBLIC__/Images/search/resource.jpg')">
+
+<h1 class="green">分配权限</h1>
+<div class="container center-block templatemo-form-list-container templatemo-container lead">
+    <div class="col-md-12 table-responsive">
+        <form method="post" action="__APP__/Home/Resource/role">
+        <table class="table table-bordered table-hover"  style="border-color: #00a0e9;text-align: center">
+            <thead>
+            <tr class="info">
+                <th style="text-align: center;" >班级</th>
+                <th style="text-align: center" >已分配资源</th>
+                <th style="text-align: center" >未分配资源</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="warning">
+                <td>一班</td>
+                <td>
+                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
+                        <option>以下已有权限</option>
+                        <optgroup label="文档">
+                            <option value="1">option1</option>
+                            <option value="2">option2</option>
+                            <option value="3">option3</option>
+                            <option value="4">option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+
+                <td>
+                    <select  name="class1[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
+                        <optgroup label="文档">
+                            <option value="1">option1</option>
+                            <option value="2">option2</option>
+                            <option value="3">option3</option>
+                            <option value="4">option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr class="warning">
+                <td>二班</td>
+                <td>
+                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
+                        <optgroup label="提示">
+                            <option>以下已有权限</option>
+                        </optgroup>
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+
+                <td>
+                    <select  name="class2[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr class="warning">
+                <td>三班</td>
+                <td>
+                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
+                        <optgroup label="提示">
+                            <option>以下已有权限</option>
+                        </optgroup>
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+
+                <td>
+                    <select  name="class3[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr class="warning">
+                <td>四班</td>
+                <td>
+                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
+                        <optgroup label="提示">
+                            <option>以下已有权限</option>
+                        </optgroup>
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+                <td>
+                    <select  name="class4[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr class="warning">
+                <td>五班</td>
+                <td>
+                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
+                        <optgroup label="提示">
+                            <option>以下已有权限</option>
+                        </optgroup>
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+                <td>
+                    <select  name="class5[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr class="warning">
+                <td>六班</td>
+                <td>
+                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
+                        <optgroup label="提示">
+                            <option>以下已有权限</option>
+                        </optgroup>
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+                <td>
+                    <select  name="class6[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr class="warning">
+                <td>七班</td>
+                <td>
+                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
+                        <optgroup label="提示">
+                            <option>以下已有权限</option>
+                        </optgroup>
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+                <td>
+                    <select  name="class7[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr class="warning">
+                <td>八班</td>
+                <td>
+                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
+                        <optgroup label="提示">
+                            <option>以下已有权限</option>
+                        </optgroup>
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+                <td>
+                    <select  name="class8[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr class="warning">
+                <td>九班</td>
+                <td>
+                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
+                        <optgroup label="提示">
+                            <option>以下已有权限</option>
+                        </optgroup>
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+                <td>
+                    <select  name="class9[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr class="warning">
+                <td>十班</td>
+                <td>
+                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
+                        <optgroup label="提示">
+                            <option>以下已有权限</option>
+                        </optgroup>
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+                <td>
+                    <select  name="class10[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
+                        <optgroup label="文档">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="视频">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="压缩文件">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+            <p style="text-align: center;margin-top: 10px"><button type="submit" class="btn btn-info" style="width: 80px;height: 40px">提交</button> </p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
