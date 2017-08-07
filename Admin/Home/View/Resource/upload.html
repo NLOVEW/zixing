@@ -46,15 +46,11 @@
             mimeTypes:'application/msword,application/pdf,application/vnd.ms-excel,application/x-xls,application/vnd.ms-powerpoint,application/x-ppt,application/zip,video/mpeg4,text/plain'
         },
         //允许同时最大上传进程数
-        threads:5,
+        threads:10,
         //设置文件上传域的name
         fileVal:'file',
         //不压缩image
         resize: false,
-        //是否要分片处理大文件上传
-        chunked:true,
-        chunkSize:5242880,
-        chunkRetry:5
     });
 
     uploader.on('fileQueued',function (file) {
