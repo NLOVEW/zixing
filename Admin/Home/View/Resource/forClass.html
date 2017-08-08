@@ -11,7 +11,7 @@
     <load href="__PUBLIC__/SelectConfig/bootstrap-select.js"/>
     <load href="__PUBLIC__/SelectConfig/i18n/*"/>
 </head>
-<body class="bg-image" style="background-image:url('__PUBLIC__/Images/search/resource.jpg')">
+<body class="bg-image" style="background-image:url('__PUBLIC__/Images/admin.jpg')">
 
 <h1 class="green">分配权限</h1>
 <div class="container center-block templatemo-form-list-container templatemo-container lead">
@@ -21,135 +21,158 @@
             <thead>
             <tr class="info">
                 <th style="text-align: center;" >班级</th>
-                <th style="text-align: center" >已分配资源</th>
-                <th style="text-align: center" >未分配资源</th>
+                <th style="text-align: center" >删除已分配资源</th>
+                <th style="text-align: center" >所有可分配资源</th>
             </tr>
             </thead>
             <tbody>
             <tr class="warning">
                 <td>一班</td>
                 <td>
-                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
-                        <option>以下已有权限</option>
+                    <select name="delete1[]" class="selectpicker form-control" multiple  data-hide-disabled="true" data-live-search="true" data-size="6" data-live-search-placeholder="检索">
                         <optgroup label="文档">
-                            <option value="1">option1</option>
-                            <option value="2">option2</option>
-                            <option value="3">option3</option>
-                            <option value="4">option4</option>
+                            <volist name="class1DocType" id="doc">
+                                <option value="<{$doc.r_id}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="class1ExeclType" id="execl">
+                                <option value="<{$execl.r_id}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="class1PptType" id="ppt">
+                                <option value="<{$ppt.r_id}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="class1PdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class1VideoType" id="video">
+                                <option value="<{$video.r_id}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class1OtherType" id="other">
+                                <option value="<{$other.r_id}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
-
                 <td>
                     <select  name="class1[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
                         <optgroup label="文档">
-                            <option value="1">option1</option>
-                            <option value="2">option2</option>
-                            <option value="3">option3</option>
-                            <option value="4">option4</option>
+                            <volist name="docType" id="doc">
+                               <option value="<{$doc.r_id}>-><{$doc.r_name}>-><{$doc.r_type}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="execlType" id="execl">
+                                <option value="<{$execl.r_id}>-><{$execl.r_name}>-><{$execl.r_type}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="pptType" id="ppt">
+                                <option value="<{$ppt.r_id}>-><{$ppt.r_name}>-><{$ppt.r_type}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="pdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>-><{$pdf.r_name}>-><{$pdf.r_type}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="videoType" id="video">
+                                <option value="<{$video.r_id}>-><{$video.r_name}>-><{$video.r_type}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="otherType" id="other">
+                                <option value="<{$other.r_id}>-><{$other.r_name}>-><{$other.r_type}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
             </tr>
+
             <tr class="warning">
                 <td>二班</td>
                 <td>
-                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
-                        <optgroup label="提示">
-                            <option>以下已有权限</option>
-                        </optgroup>
+                    <select name="delete2[]" class="selectpicker form-control" multiple data-live-search-placeholder="检索" data-hide-disabled="true" data-live-search="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class2DocType" id="doc">
+                                <option value="<{$doc.r_id}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="class2ExeclType" id="execl">
+                                <option value="<{$execl.r_id}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="class2PptType" id="ppt">
+                                <option value="<{$ppt.r_id}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="class2PdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class2VideoType" id="video">
+                                <option value="<{$video.r_id}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class2OtherType" id="other">
+                                <option value="<{$other.r_id}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
-
                 <td>
                     <select  name="class2[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="docType" id="doc">
+                                <option value="<{$doc.r_id}>-><{$doc.r_name}>-><{$doc.r_type}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="execlType" id="execl">
+                                <option value="<{$execl.r_id}>-><{$execl.r_name}>-><{$execl.r_type}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="pptType" id="ppt">
+                                <option value="<{$ppt.r_id}>-><{$ppt.r_name}>-><{$ppt.r_type}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="pdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>-><{$pdf.r_name}>-><{$pdf.r_type}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="videoType" id="video">
+                                <option value="<{$video.r_id}>-><{$video.r_name}>-><{$video.r_type}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="otherType" id="other">
+                                <option value="<{$other.r_id}>-><{$other.r_name}>-><{$other.r_type}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
             </tr>
+
             <tr class="warning">
                 <td>三班</td>
                 <td>
-                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
-                        <optgroup label="提示">
-                            <option>以下已有权限</option>
-                        </optgroup>
+                    <select name="delete3[]" class="selectpicker form-control" multiple data-live-search-placeholder="检索" data-hide-disabled="true" data-live-search="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class3DocType" id="doc">
+                                <option value="<{$doc.r_id}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="class3ExeclType" id="execl">
+                                <option value="<{$execl.r_id}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="class3PptType" id="ppt">
+                                <option value="<{$ppt.r_id}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="class3PdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class3VideoType" id="video">
+                                <option value="<{$video.r_id}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class3OtherType" id="other">
+                                <option value="<{$other.r_id}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
@@ -157,22 +180,28 @@
                 <td>
                     <select  name="class3[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="docType" id="doc">
+                                <option value="<{$doc.r_id}>-><{$doc.r_name}>-><{$doc.r_type}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="execlType" id="execl">
+                                <option value="<{$execl.r_id}>-><{$execl.r_name}>-><{$execl.r_type}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="pptType" id="ppt">
+                                <option value="<{$ppt.r_id}>-><{$ppt.r_name}>-><{$ppt.r_type}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="pdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>-><{$pdf.r_name}>-><{$pdf.r_type}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="videoType" id="video">
+                                <option value="<{$video.r_id}>-><{$video.r_name}>-><{$video.r_type}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="otherType" id="other">
+                                <option value="<{$other.r_id}>-><{$other.r_name}>-><{$other.r_type}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
@@ -180,49 +209,58 @@
             <tr class="warning">
                 <td>四班</td>
                 <td>
-                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
-                        <optgroup label="提示">
-                            <option>以下已有权限</option>
-                        </optgroup>
+                    <select name="delete4[]" class="selectpicker form-control" multiple data-live-search-placeholder="检索"  data-hide-disabled="true" data-live-search="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class4DocType" id="doc">
+                                <option value="<{$doc.r_id}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="class4ExeclType" id="execl">
+                                <option value="<{$execl.r_id}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="class4PptType" id="ppt">
+                                <option value="<{$ppt.r_id}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="class4PdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class4VideoType" id="video">
+                                <option value="<{$video.r_id}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class4OtherType" id="other">
+                                <option value="<{$other.r_id}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
                 <td>
                     <select  name="class4[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="docType" id="doc">
+                                <option value="<{$doc.r_id}>-><{$doc.r_name}>-><{$doc.r_type}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="execlType" id="execl">
+                                <option value="<{$execl.r_id}>-><{$execl.r_name}>-><{$execl.r_type}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="pptType" id="ppt">
+                                <option value="<{$ppt.r_id}>-><{$ppt.r_name}>-><{$ppt.r_type}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="pdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>-><{$pdf.r_name}>-><{$pdf.r_type}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="videoType" id="video">
+                                <option value="<{$video.r_id}>-><{$video.r_name}>-><{$video.r_type}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="otherType" id="other">
+                                <option value="<{$other.r_id}>-><{$other.r_name}>-><{$other.r_type}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
@@ -230,49 +268,58 @@
             <tr class="warning">
                 <td>五班</td>
                 <td>
-                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
-                        <optgroup label="提示">
-                            <option>以下已有权限</option>
-                        </optgroup>
+                    <select name="delete5[]" class="selectpicker form-control" multiple data-live-search-placeholder="检索" data-hide-disabled="true" data-live-search="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class5DocType" id="doc">
+                                <option value="<{$doc.r_id}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="class5ExeclType" id="execl">
+                                <option value="<{$execl.r_id}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="class5PptType" id="ppt">
+                                <option value="<{$ppt.r_id}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="class5PdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class5VideoType" id="video">
+                                <option value="<{$video.r_id}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class5OtherType" id="other">
+                                <option value="<{$other.r_id}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
                 <td>
                     <select  name="class5[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="docType" id="doc">
+                                <option value="<{$doc.r_id}>-><{$doc.r_name}>-><{$doc.r_type}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="execlType" id="execl">
+                                <option value="<{$execl.r_id}>-><{$execl.r_name}>-><{$execl.r_type}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="pptType" id="ppt">
+                                <option value="<{$ppt.r_id}>-><{$ppt.r_name}>-><{$ppt.r_type}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="pdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>-><{$pdf.r_name}>-><{$pdf.r_type}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="videoType" id="video">
+                                <option value="<{$video.r_id}>-><{$video.r_name}>-><{$video.r_type}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="otherType" id="other">
+                                <option value="<{$other.r_id}>-><{$other.r_name}>-><{$other.r_type}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
@@ -280,99 +327,118 @@
             <tr class="warning">
                 <td>六班</td>
                 <td>
-                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
-                        <optgroup label="提示">
-                            <option>以下已有权限</option>
-                        </optgroup>
+                    <select name="delete6[]" class="selectpicker form-control" multiple data-live-search-placeholder="检索" data-hide-disabled="true" data-live-search="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class6DocType" id="doc">
+                                <option value="<{$doc.r_id}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="class6ExeclType" id="execl">
+                                <option value="<{$execl.r_id}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="class6PptType" id="ppt">
+                                <option value="<{$ppt.r_id}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="class6PdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class6VideoType" id="video">
+                                <option value="<{$video.r_id}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class6OtherType" id="other">
+                                <option value="<{$other.r_id}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
                 <td>
                     <select  name="class6[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="docType" id="doc">
+                                <option value="<{$doc.r_id}>-><{$doc.r_name}>-><{$doc.r_type}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="execlType" id="execl">
+                                <option value="<{$execl.r_id}>-><{$execl.r_name}>-><{$execl.r_type}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="pptType" id="ppt">
+                                <option value="<{$ppt.r_id}>-><{$ppt.r_name}>-><{$ppt.r_type}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="pdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>-><{$pdf.r_name}>-><{$pdf.r_type}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="videoType" id="video">
+                                <option value="<{$video.r_id}>-><{$video.r_name}>-><{$video.r_type}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="otherType" id="other">
+                                <option value="<{$other.r_id}>-><{$other.r_name}>-><{$other.r_type}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
             </tr>
+
             <tr class="warning">
                 <td>七班</td>
                 <td>
-                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
-                        <optgroup label="提示">
-                            <option>以下已有权限</option>
-                        </optgroup>
+                    <select name="delete7[]" class="selectpicker form-control" multiple data-live-search-placeholder="检索" data-hide-disabled="true" data-live-search="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class7DocType" id="doc">
+                                <option value="<{$doc.r_id}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="class7ExeclType" id="execl">
+                                <option value="<{$execl.r_id}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="class7PptType" id="ppt">
+                                <option value="<{$ppt.r_id}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="class7PdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class7VideoType" id="video">
+                                <option value="<{$video.r_id}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class7OtherType" id="other">
+                                <option value="<{$other.r_id}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
                 <td>
                     <select  name="class7[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="docType" id="doc">
+                                <option value="<{$doc.r_id}>-><{$doc.r_name}>-><{$doc.r_type}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="execlType" id="execl">
+                                <option value="<{$execl.r_id}>-><{$execl.r_name}>-><{$execl.r_type}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="pptType" id="ppt">
+                                <option value="<{$ppt.r_id}>-><{$ppt.r_name}>-><{$ppt.r_type}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="pdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>-><{$pdf.r_name}>-><{$pdf.r_type}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="videoType" id="video">
+                                <option value="<{$video.r_id}>-><{$video.r_name}>-><{$video.r_type}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="otherType" id="other">
+                                <option value="<{$other.r_id}>-><{$other.r_name}>-><{$other.r_type}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
@@ -380,49 +446,58 @@
             <tr class="warning">
                 <td>八班</td>
                 <td>
-                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
-                        <optgroup label="提示">
-                            <option>以下已有权限</option>
-                        </optgroup>
+                    <select name="delete8[]" class="selectpicker form-control" multiple data-live-search-placeholder="检索" data-hide-disabled="true" data-live-search="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class8DocType" id="doc">
+                                <option value="<{$doc.r_id}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="class8ExeclType" id="execl">
+                                <option value="<{$execl.r_id}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="class8PptType" id="ppt">
+                                <option value="<{$ppt.r_id}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="class8PdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class8VideoType" id="video">
+                                <option value="<{$video.r_id}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class8OtherType" id="other">
+                                <option value="<{$other.r_id}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
                 <td>
                     <select  name="class8[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="docType" id="doc">
+                                <option value="<{$doc.r_id}>-><{$doc.r_name}>-><{$doc.r_type}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="execlType" id="execl">
+                                <option value="<{$execl.r_id}>-><{$execl.r_name}>-><{$execl.r_type}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="pptType" id="ppt">
+                                <option value="<{$ppt.r_id}>-><{$ppt.r_name}>-><{$ppt.r_type}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="pdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>-><{$pdf.r_name}>-><{$pdf.r_type}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="videoType" id="video">
+                                <option value="<{$video.r_id}>-><{$video.r_name}>-><{$video.r_type}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="otherType" id="other">
+                                <option value="<{$other.r_id}>-><{$other.r_name}>-><{$other.r_type}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
@@ -430,49 +505,58 @@
             <tr class="warning">
                 <td>九班</td>
                 <td>
-                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
-                        <optgroup label="提示">
-                            <option>以下已有权限</option>
-                        </optgroup>
+                    <select name="delete9[]" class="selectpicker form-control" multiple data-live-search-placeholder="检索" data-hide-disabled="true" data-live-search="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class9DocType" id="doc">
+                                <option value="<{$doc.r_id}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="class9ExeclType" id="execl">
+                                <option value="<{$execl.r_id}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="class9PptType" id="ppt">
+                                <option value="<{$ppt.r_id}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="class9PdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class9VideoType" id="video">
+                                <option value="<{$video.r_id}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class9OtherType" id="other">
+                                <option value="<{$other.r_id}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
                 <td>
                     <select  name="class9[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="docType" id="doc">
+                                <option value="<{$doc.r_id}>-><{$doc.r_name}>-><{$doc.r_type}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="execlType" id="execl">
+                                <option value="<{$execl.r_id}>-><{$execl.r_name}>-><{$execl.r_type}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="pptType" id="ppt">
+                                <option value="<{$ppt.r_id}>-><{$ppt.r_name}>-><{$ppt.r_type}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="pdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>-><{$pdf.r_name}>-><{$pdf.r_type}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="videoType" id="video">
+                                <option value="<{$video.r_id}>-><{$video.r_name}>-><{$video.r_type}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="otherType" id="other">
+                                <option value="<{$other.r_id}>-><{$other.r_name}>-><{$other.r_type}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
@@ -480,49 +564,58 @@
             <tr class="warning">
                 <td>十班</td>
                 <td>
-                    <select class="selectpicker form-control" data-hide-disabled="true" data-live-search="true" data-size="6">
-                        <optgroup label="提示">
-                            <option>以下已有权限</option>
-                        </optgroup>
+                    <select name="delete10[]" class="selectpicker form-control" multiple data-live-search-placeholder="检索" data-hide-disabled="true" data-live-search="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class10DocType" id="doc">
+                                <option value="<{$doc.r_id}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="class10ExeclType" id="execl">
+                                <option value="<{$execl.r_id}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="class10PptType" id="ppt">
+                                <option value="<{$ppt.r_id}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="class10PdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class10VideoType" id="video">
+                                <option value="<{$video.r_id}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="class10OtherType" id="other">
+                                <option value="<{$other.r_id}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
                 <td>
                     <select  name="class10[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
                         <optgroup label="文档">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="docType" id="doc">
+                                <option value="<{$doc.r_id}>-><{$doc.r_name}>-><{$doc.r_type}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
+                            </volist>
+                            <volist name="execlType" id="execl">
+                                <option value="<{$execl.r_id}>-><{$execl.r_name}>-><{$execl.r_type}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
+                            </volist>
+                            <volist name="pptType" id="ppt">
+                                <option value="<{$ppt.r_id}>-><{$ppt.r_name}>-><{$ppt.r_type}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
+                            </volist>
+                            <volist name="pdfType" id="pdf">
+                                <option value="<{$pdf.r_id}>-><{$pdf.r_name}>-><{$pdf.r_type}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="视频">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="videoType" id="video">
+                                <option value="<{$video.r_id}>-><{$video.r_name}>-><{$video.r_type}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
+                            </volist>
                         </optgroup>
                         <optgroup label="压缩文件">
-                            <option>option1</option>
-                            <option>option2</option>
-                            <option>option3</option>
-                            <option>option4</option>
+                            <volist name="otherType" id="other">
+                                <option value="<{$other.r_id}>-><{$other.r_name}>-><{$other.r_type}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
+                            </volist>
                         </optgroup>
                     </select>
                 </td>
