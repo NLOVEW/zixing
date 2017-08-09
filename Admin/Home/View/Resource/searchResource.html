@@ -17,59 +17,88 @@
             <tr class="info">
                 <th style="text-align: center;" title="点击排序">文件编号</th>
                 <th style="text-align: center" title="点击排序">文件名称</th>
+                <th style="text-align: center" title="点击排序">所属课程</th>
+                <th style="text-align: center" title="点击排序">文件类型</th>
                 <th style="text-align: center" title="点击排序">文件大小</th>
+                <th style="text-align: center" title="点击排序">上传时间</th>
+                <th style="text-align: center" title="点击排序">上传者ID</th>
+                <th style="text-align: center" title="点击排序">检索关键字</th>
                 <th style="text-align: center">在线浏览</th>
                 <th style="text-align: center">下载</th>
                 <th style="text-align: center">删除</th>
             </tr>
             </thead>
             <tbody>
-            <tr class="warning">
-                <td>10010</td>
-                <td>10010编程思想.pdf</td>
-                <td>50M</td>
-                <td><a href="#"><span class="glyphicon glyphicon-eye-open"></span></a></td>
-                <td><a href="javascript:;"><span class="glyphicon glyphicon-download"></span></a></td>
-                <td><a href="#" onclick="remove(this)"><span class="glyphicon glyphicon-remove"></span></a></td>
-            </tr>
-            <tr class="warning">
-                <td>10000</td>
-                <td>10000编程思想.pdf</td>
-                <td>50M</td>
-                <td><a href="#"><span class="glyphicon glyphicon-eye-open"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-download"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
-            </tr>
-            <tr class="warning">
-                <td>10086</td>
-                <td>10086编程思想.pdf</td>
-                <td>50M</td>
-                <td><a href="#"><span class="glyphicon glyphicon-eye-open"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-download"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
-            </tr>
+            <volist name="allData" id="data">
+                <tr class="warning">
+                    <td><{$data.r_id}></td>
+                    <td><{$data.r_name}></td>
+                    <td><{$data.r_course}></td>
+                    <td><{$data.r_type}></td>
+                    <td><{$data.r_size}></td>
+                    <td><{$data.r_time}></td>
+                    <td><{$data.r_uploaderphone}></td>
+                    <td><{$data.r_keyword}></td>
+                    <td>
+                        <switch name="data.r_type">
+                            <case value="Doc">
+                                <form action="__APP__/Home/ResourceManager/lookWord" method="post">
+                                    <input type="hidden" name="path" value="<{$data.r_name}>">
+                                    <button type="submit" style="background: transparent;border: none">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </button>
+                                </form>
+                            </case>
+                            <case value="Pdf">
+                                <form action="__APP__/Home/ResourceManager/lookPdf" method="post">
+                                    <input type="hidden" name="path" value="__PUBLIC__/<{$data.r_address}>">
+                                    <button type="submit" style="background: transparent;border: none">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </button>
+                                </form>
+                            </case>
+                            <case value="PPT">
+                                <form action="__APP__/Home/ResourceManager/lookPpt" method="post">
+                                    <input type="hidden" name="path" value="<{$data.r_name}>">
+                                    <button type="submit" style="background: transparent;border: none">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </button>
+                                </form>
+                            </case>
+                            <case value="Execl">
+                                <form action="__APP__/Home/ResourceManager/lookExecl" method="post">
+                                    <input type="hidden" name="path" value="<{$data.r_name}>">
+                                    <button type="submit" style="background: transparent;border: none">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </button>
+                                </form>
+                            </case>
+                            <case value="Video">
+                                <form action="__APP__/Home/ResourceManager/lookVideo" method="post">
+                                    <input type="hidden" name="path" value="<{$data.r_address}>">
+                                    <button type="submit" style="background: transparent;border: none">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </button>
+                                </form>
+                            </case>
+                            <default />无法在线浏览
+                        </switch>
 
+                    </td>
+                    <td>
+                        <form action="__APP__/Home/ResourceManager/download" method="post">
+                            <input type="hidden" name="path" value="<{$data.r_address}>">
+                            <button type="submit" style="background: transparent;border: none">
+                                <span class="glyphicon glyphicon-download"></span>
+                            </button>
+                        </form>
+                    </td>
+                    <td><a href="#" onclick="remove(this)"><span class="glyphicon glyphicon-remove"></span></a></td>
+                </tr>
+            </volist>
             </tbody>
         </table>
-        <nav style="text-align: center">
-            <ul class="pagination">
-                <li>
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <p style="text-align: center;color: #9724ff;"><{$page}></p>
     </div>
 </div>
 </body>

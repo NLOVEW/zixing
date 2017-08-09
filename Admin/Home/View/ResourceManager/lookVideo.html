@@ -6,22 +6,28 @@
     <title>在线浏览</title>
     <load href="__PUBLIC__/VideoConfig/video-js.css"/>
     <load href="__PUBLIC__/VideoConfig/video.js"/>
+    <load href="__PUBLIC__/VideoConfig/acornmediaplayer/acornmediaplayer.base.css"/>
+    <load href="__PUBLIC__/lib/jquery/1.9.1/jquery.min.js"/>
     <load href="__PUBLIC__/Bootstrap/css/bootstrap.css"/>
     <load href="__PUBLIC__/Bootstrap/css/bootstrap-theme.css"/>
     <load href="__PUBLIC__/Css/font-awesome.min.css"/>
     <load href="__PUBLIC__/Css/templatemo_style.css"/>
+    <script>
+        videojs.options.flash.swf = "__PUBLIC__/VideoConfig/video-js.swf";
+    </script>
+
 </head>
 <body style="background: url('__PUBLIC__/Images/look_bg.jpg');text-align: center" class="container center-block">
-    <video id="my_video" class="video-js vjs-default-skin"
-           controls preload="auto" width="900" height="500">
-        <source src="__PUBLIC__/Resource/Video/test.mp4" type="video/mp4">
-    </video>
+        <video id="myVideo" class="video-js vjs-default-skin" controls width="900" height="500">
+            <source src="__PUBLIC__/Resource/Video/test.mp4" type='video/mp4' />
+        </video>
 </body>
 <script>
-    var myPlayer = videojs('my_video');
-    videojs("my_video").ready(function(){
-        myPlayer = this;
+    var videoObj = videojs("myVideo");
+    videojs("myVideo").ready(function () {
+        var myPlayer = this;
         myPlayer.volume(0.3);
+        myPlayer.enterFullScreen();
     });
 </script>
 </html>

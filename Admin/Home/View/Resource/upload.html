@@ -15,6 +15,22 @@
     <div class="container center-block templatemo-form-list-container templatemo-container lead">
             <!--上传组件部分-->
             <div id="uploader" class="wu-example">
+                <div class="form-group">
+                    <label for="course" class="col-sm-2 control-label"> 所&nbsp;属&nbsp;课&nbsp;程</label>
+                    <div class="col-sm-10">
+                        <select name="course" class="form-control" style="height: 40px;width: 200px" id="course">
+                            <option value="C++">C++</option>
+                            <option value="JAVA">JAVA</option>
+                            <option value="Python">Python</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="keyWord" class="col-sm-2 control-label"> 检索关键字</label>
+                    <div class="col-sm-10">
+                        <input name="keyWord" type="text" class="form-control" id="keyWord" placeholder="请输入检索关键字" style="height: 40px;width: 200px">
+                    </div>
+                </div>
                 <!--用来存放文件信息-->
                 <div id="thelist" class="uploader-list"></div>
                 <div class="btns">
@@ -56,22 +72,6 @@
     uploader.on('fileQueued',function (file) {
         $list.append( '<div id="' + file.id + '" class="item">' +
             '<h4 class="info" style="color: #ff3e12;font-size: 25px">' + file.name +'------'+WebUploader.formatSize(file.size)+ '</h4>' +
-            '<div class="form-group">\n' +
-            '                <label for="course" class="col-sm-2 control-label"> 所&nbsp;属&nbsp;课&nbsp;程</label>\n' +
-            '                <div class="col-sm-10">\n' +
-            '                    <select name="course" class="form-control" style="height: 40px;width: 200px" id="course">\n' +
-            '                        <option value="C++">C++</option>\n' +
-            '                        <option value="JAVA">JAVA</option>\n' +
-            '                        <option value="Python">Python</option>\n' +
-            '                    </select>\n' +
-            '                </div>\n' +
-            '            </div>\n' +
-            '            <div class="form-group">\n' +
-            '                <label for="keyWord" class="col-sm-2 control-label"> 检索关键字</label>\n' +
-            '                <div class="col-sm-10">\n' +
-            '                   <input name="keyWord" type="text" class="form-control" id="keyWord" placeholder="请输入检索关键字" style="height: 40px;width: 200px">\n' +
-            '                </div>\n' +
-            '            </div>'+
             '<p class="state" style="color: rgba(154,11,70,0.68);font-size: 20px">等待上传......</p>' +
             '</div>' );
     });
