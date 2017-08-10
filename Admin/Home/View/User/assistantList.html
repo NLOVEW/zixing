@@ -10,7 +10,7 @@
     <load href="__PUBLIC__/Css/font-awesome.min.css"/>
     <load href="__PUBLIC__/Css/templatemo_style.css"/>
 </head>
-<body class="bg-image" style="background-image:url('__PUBLIC__/Images/search/resource.jpg')">
+<body class="bg-image" style="background-image:url('__PUBLIC__/Images/admin.jpg')">
 
 <h1 class="green">助教列表</h1>
 <div class="container center-block templatemo-form-list-container templatemo-container lead">
@@ -22,48 +22,22 @@
                 <th style="text-align: center" title="点击排序">姓名</th>
                 <th style="text-align: center" title="点击排序">性别</th>
                 <th style="text-align: center" title="点击排序">所教课程</th>
+                <th style="text-align: center" title="点击排序">删除该助教</th>
             </tr>
             </thead>
             <tbody>
-            <tr class="warning">
-                <td>10010</td>
-                <td>张三</td>
-                <td>男</td>
-                <td>无</td>
-            </tr>
-            <tr class="warning">
-                <td>10086</td>
-                <td>李四</td>
-                <td>男</td>
-                <td>无</td>
-            </tr>
-            <tr class="warning">
-                <td>10000</td>
-                <td>王五</td>
-                <td>男</td>
-                <td>无</td>
-            </tr>
+            <volist name="allData" id="assistant">
+                <tr class="warning">
+                    <td><{$assistant.as_phone}></td>
+                    <td><{$assistant.as_name}></td>
+                    <td><{$assistant.as_sex}></td>
+                    <td><{$assistant.as_course}></td>
+                    <td><a href="#" onclick="remove(this,'<{$assistant.as_phone}>','<{$assistant.as_name}>')"><span class="glyphicon glyphicon-remove"></span></a></td>
+                </tr>
+            </volist>
             </tbody>
         </table>
-        <nav style="text-align: center">
-            <ul class="pagination">
-                <li>
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <p style="text-align: center;color: #9724ff;"><{$page}></p>
     </div>
 </div>
 </body>
@@ -76,7 +50,7 @@
         $('.table').dataTable({
             "bPaginate": false, //翻页功能
             "bLengthChange": false, //改变每页显示数据数量
-            "bFilter": true, //过滤功能
+            "bFilter": false, //过滤功能
             "bSort": true, //排序功能
             "bInfo": false,//页脚信息
             "bAutoWidth": false,//自动宽度
@@ -84,11 +58,12 @@
     });
 
 
-    function remove(obj){
+    function remove(obj,num,name){
         layer.confirm("确认要删除吗？",{icon:3,title:'确认框'},function(index){
             $.ajax({
                 type: 'POST',
-                url: '__APP__/Home/ResourceManager/remove',
+                url: '__APP__/Home/User/removeAssistant',
+                data:{"id":num,"name":name},
                 dataType: 'json',
                 success: function(data){
                     $(obj).parents("tr").remove();
