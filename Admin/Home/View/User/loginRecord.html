@@ -10,29 +10,32 @@
 </head>
 <body class="bg-image" style="background-image:url('__PUBLIC__/Images/admin.jpg')">
 
-<h1 class="green">资源浏览记录</h1>
+<h1 class="green">登录记录</h1>
 <div class="container center-block templatemo-form-list-container templatemo-container lead">
     <div class="col-md-12 table-responsive">
         <table class="table table-bordered table-hover" style="border-color: #00a0e9;text-align: center">
             <thead>
             <tr class="info">
-                <th style="text-align: center" title="点击排序">文件编号</th>
-                <th style="text-align: center" title="点击排序">文件名称</th>
-                <th style="text-align: center" title="点击排序">浏览者ID</th>
-                <th style="text-align: center" title="点击排序">浏览者姓名</th>
-                <th style="text-align: center" title="点击排序">操作内容</th>
-                <th style="text-align: center" title="点击排序">浏览记录日期</th>
+                <th style="text-align: center" title="点击排序">登录者ID</th>
+                <th style="text-align: center" title="点击排序">登录者姓名</th>
+                <th style="text-align: center" title="点击排序">登录IP</th>
+                <th style="text-align: center" title="点击排序">登录所在地区</th>
+                <th style="text-align: center" title="点击排序">登录记录时间</th>
             </tr>
             </thead>
             <tbody>
             <volist name="allData" id="data">
                 <tr class="warning">
-                    <td><{$data.rur_resourceid}></td>
-                    <td><{$data.rur_resourcename}></td>
-                    <td><{$data.rur_userid}></td>
-                    <td><{$data.rur_username}></td>
-                    <td><{$data.rur_operation}></td>
-                    <td><{$data.rur_time}></td>
+                    <td><{$data.lr_id}></td>
+                    <td><{$data.lr_name}></td>
+                    <td><{$data.lr_ip}></td>
+                    <td>
+                        <switch name="data.lr_address">
+                            <case value="---">局域网访问</case>
+                            <default /><{$data.lr_address}>
+                        </switch>
+                    </td>
+                    <td><{$data.lr_time}></td>
                 </tr>
             </volist>
             </tbody>

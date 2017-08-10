@@ -16,8 +16,8 @@
         <table class="table table-bordered table-hover" style="border-color: #00a0e9;text-align: center">
             <thead>
             <tr class="info">
-                <th style="text-align: center" title="点击排序">文件编号</th>
-                <th style="text-align: center" title="点击排序">文件名称</th>
+                <th style="text-align: center" title="点击排序">课程标号</th>
+                <th style="text-align: center" title="点击排序">课程名称</th>
                 <th style="text-align: center" title="点击排序">浏览者ID</th>
                 <th style="text-align: center" title="点击排序">浏览者姓名</th>
                 <th style="text-align: center" title="点击排序">操作内容</th>
@@ -27,12 +27,12 @@
             <tbody>
             <volist name="allData" id="data">
                 <tr class="warning">
-                    <td><{$data.rur_resourceid}></td>
-                    <td><{$data.rur_resourcename}></td>
-                    <td><{$data.rur_userid}></td>
-                    <td><{$data.rur_username}></td>
-                    <td><{$data.rur_operation}></td>
-                    <td><{$data.rur_time}></td>
+                    <td><{$data.cur_courseid}></td>
+                    <td><{$data.cur_coursename}></td>
+                    <td><{$data.cur_userid}></td>
+                    <td><{$data.cur_username}></td>
+                    <td><{$data.cur_operation}></td>
+                    <td><{$data.cur_time}></td>
                 </tr>
             </volist>
             </tbody>

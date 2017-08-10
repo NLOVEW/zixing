@@ -4,30 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>在线浏览</title>
-    <load href="__PUBLIC__/VideoConfig/video-js.css"/>
-    <load href="__PUBLIC__/VideoConfig/video.js"/>
-    <load href="__PUBLIC__/VideoConfig/acornmediaplayer/acornmediaplayer.base.css"/>
+    <load href="__PUBLIC__/VideoConfig/jwplayer.html5.js"/>
+    <load href="__PUBLIC__/VideoConfig/jwplayer.js"/>
     <load href="__PUBLIC__/lib/jquery/1.9.1/jquery.min.js"/>
     <load href="__PUBLIC__/Bootstrap/css/bootstrap.css"/>
     <load href="__PUBLIC__/Bootstrap/css/bootstrap-theme.css"/>
     <load href="__PUBLIC__/Css/font-awesome.min.css"/>
     <load href="__PUBLIC__/Css/templatemo_style.css"/>
-    <script>
-        videojs.options.flash.swf = "__PUBLIC__/VideoConfig/video-js.swf";
-    </script>
 
 </head>
 <body style="background: url('__PUBLIC__/Images/look_bg.jpg');text-align: center" class="container center-block">
-        <video id="myVideo" class="video-js vjs-default-skin" controls width="900" height="500">
-            <source src="__PUBLIC__/Resource/Video/test.mp4" type='video/mp4' />
-        </video>
-</body>
-<script>
-    var videoObj = videojs("myVideo");
-    videojs("myVideo").ready(function () {
-        var myPlayer = this;
-        myPlayer.volume(0.3);
-        myPlayer.enterFullScreen();
+<div id="playerzmblbkjP_wrapper" style="width:700px;height:300px;position:relative;">
+    <object name="playerzmblbkjP" width="100%" height="100%" id="playerzmblbkjP" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" style="position:absolute;top:0;left:0;">
+        <param name="movie" value="__PUBLIC__/VideoConfig/jwplayer.flash.swf">
+        <param name="src" value="__PUBLIC__/VideoConfig/jwplayer.flash.swf">
+        <param name="AllowScriptAccess" value="always">
+    </object>
+</div>
+<script type="text/javascript">
+    jwplayer('playerzmblbkjP').setup({
+        file:'__PUBLIC__/<{$path}>',
+        width: '800px',
+        height: '400px',
+        aspectratio: '16:10',
+        fallback: 'false',
+        primary: jwplayer.utils.isChrome() ? "flash" : "html5"
     });
 </script>
+</body>
 </html>

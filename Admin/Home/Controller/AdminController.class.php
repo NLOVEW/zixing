@@ -14,7 +14,6 @@
             }
             $this->display();
         }
-
         public function welcome(){
             $this->display();
         }

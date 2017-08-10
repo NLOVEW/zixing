@@ -51,7 +51,6 @@
                     $pwd=$user[0]['ad_password'];
                     if(strcmp($password,$pwd)==0){
                         session('userName',$userName);
-
                         $ipRecord=M('login_record');
                         $ip = get_client_ip();
                         $url="http://ip.taobao.com/service/getIpInfo.php?ip=".$ip;
@@ -59,8 +58,8 @@
                         $city = $area->data->region.'---'.$area->data->city;
                         $time=date("Y-m-d H:i:s");
                         $id=session('userID');
-                        $ipRecord->execute("insert into login_record(LR_id,LR_Time,LR_ip,LR_address) 
-                                        VALUES ('$id','$time','$ip','$city')");
+                        $ipRecord->execute("insert into login_record(LR_id,LR_name,LR_Time,LR_ip,LR_address) 
+                                        VALUES ('$id','$userName','$time','$ip','$city')");
                         $this->redirect('Admin/index', '', 0, '页面跳转中...');
                     }else{
                         $this->redirect('Login/login', '', 3, '密码错误请重新登录，正在跳转...');
