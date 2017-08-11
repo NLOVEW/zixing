@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <head>
     <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <load href="__PUBLIC__/Bootstrap/css/bootstrap.css"/>
@@ -10,29 +12,31 @@
 </head>
 <body class="bg-image" style="background-image:url('__PUBLIC__/Images/admin.jpg')">
 
-<h1 class="green">资源浏览记录</h1>
+<h1 class="green">课程列表</h1>
 <div class="container center-block templatemo-form-list-container templatemo-container lead">
     <div class="col-md-12 table-responsive">
-        <table class="table table-bordered table-hover" style="border-color: #00a0e9;text-align: center">
+        <table class="table table-bordered table-hover"  style="border-color: #00a0e9;text-align: center">
             <thead>
             <tr class="info">
-                <th style="text-align: center" title="点击排序">文件编号</th>
-                <th style="text-align: center" title="点击排序">文件名称</th>
-                <th style="text-align: center" title="点击排序">浏览者ID</th>
-                <th style="text-align: center" title="点击排序">浏览者姓名</th>
-                <th style="text-align: center" title="点击排序">操作内容</th>
-                <th style="text-align: center" title="点击排序">浏览记录日期</th>
+                <th style="text-align: center" title="点击排序">课程编号</th>
+                <th style="text-align: center" title="点击排序">课程名称</th>
+                <th style="text-align: center" title="点击排序">添加者ID</th>
+                <th style="text-align: center" title="点击排序">添加者姓名</th>
+                <th style="text-align: center" title="点击排序">添加时间</th>
             </tr>
             </thead>
             <tbody>
-            <volist name="allData" id="data">
+            <volist name="allData" id="course">
                 <tr class="warning">
-                    <td><{$data.rur_resourceid}></td>
-                    <td><{$data.rur_resourcename}></td>
-                    <td><{$data.rur_userid}></td>
-                    <td><{$data.rur_username}></td>
-                    <td><{$data.rur_operation}></td>
-                    <td><{$data.rur_time}></td>
+                    <td><{$course.c_id}></td>
+                    <td>
+                        <u style="cursor:pointer" onclick="course_show('<{$course.c_name}>','__APP__/Home/Assistant/show?id=<{$course.c_id}>&name=<{$course.c_name}>','900','600')" class="text-primary" >
+                            <{$course.c_name}>
+                        </u>
+                    </td>
+                    <td><{$course.c_uploaderid}></td>
+                    <td><{$course.c_uploader}></td>
+                    <td><{$course.c_time}></td>
                 </tr>
             </volist>
             </tbody>
@@ -42,8 +46,11 @@
 </div>
 </body>
 <load href="__PUBLIC__/lib/jquery/1.9.1/jquery.min.js"/>
+<load href="__PUBLIC__/lib/layer/2.4/layer.js"/>
+<load href="__PUBLIC__/static/h-ui.admin/js/H-ui.admin.js"/>
 <load href="__PUBLIC__/lib/datatables/1.10.0/jquery.dataTables.min.js"/>
 <script>
+
     $(document).ready(function() {
         $('.table').dataTable({
             "bPaginate": false, //翻页功能
@@ -54,5 +61,10 @@
             "bAutoWidth": false,//自动宽度
         });
     });
+
+    function course_show(title,url,w,h){
+        layer_show(title,url,w,h);
+    }
+
 </script>
 </html>

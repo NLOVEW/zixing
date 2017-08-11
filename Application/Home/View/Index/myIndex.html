@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent">
 <head>
-    <meta charset=utf-8">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no"/>
@@ -48,14 +49,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand logoaa" href="javascript:;">
+                    <a class="navbar-brand logoaa" href="#">
                         科技改变世界
                     </a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse daohang">
                     <ul class="nav navbar-nav navbar-right">
                         <li  class="navbar-iphone"><a href='http://www.zixingai.com'><span>学院首页</span></a></li>
-                        <li  class="navbar-iphone"><a href='__APP__/Home/Login/login'><span>登录</span></a></li>
+                        <li  class="navbar-iphone"><a href='__APP__/Home/<{$path}>' title="个人中心"><span>欢迎您，<{$username}></span></a></li>
                     </ul>
                 </div>
                 <div class="navbar-iphone">
@@ -63,14 +64,12 @@
                 </div>
             </div>
         </nav>
-    </div>
-</nav>
+    </div></nav>
 <header class="stripe full">
     <div class="contain">
-        <div  class="text-center-tight">
-            <div class="inner">
-                 <h2>自兴人工智能学院资源网</h2>
-            </div>
+        <div  class="text-center-tight"><div class="inner">
+            <h2>自兴人工智能学院资源网</h2>
+        </div>
         </div>
         <a href="javascript:;" class="anchor scroll-down fadeInDown"></a>
     </div>
@@ -84,16 +83,17 @@
                 <h2>本网站简介</h2>
                 <p class="lead">十年树木百年树人，只有提高学生丰富的学习资源才能更上一层楼。本站点包含Word文档，PPT，PDF文档，视频等，支持在线浏览，下载（按照课程安排）</p>
                 <form action="#" method="post" class="form-inline">
-                     <div class="form-group">
+                    <div class="form-group">
                         <input type="search" class="form-control" name="requestContent" placeholder="请输入搜索关键字" style="width: 250px;height: 40px"/>
                         <span>
                             <input  value="搜索一下" type="submit" class="btn btn-success" style="height: 40px">
                          </span>
-                     </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
+
     <div class="container-fluid">
         <section class="work-list" >
             <div class="inner" id="work-feed1">
@@ -116,6 +116,7 @@
         </section>
         <section class="work-list" >
             <div class="inner" id="work-feed2">
+
                 <article class="work-item " data-show="on-scroll" >
                     <a href="__APP__/Home/Login/login">
                         <picture>

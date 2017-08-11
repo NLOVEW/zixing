@@ -13,9 +13,11 @@
     <link rel="stylesheet" type="text/css" href="/Public/static/h-ui/css/H-ui.min.css" />
     <link rel="stylesheet" type="text/css" href="/Public/static/h-ui.admin/css/H-ui.admin.css" />
     <link rel="stylesheet" type="text/css" href="/Public/lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="/Public/static/h-ui.admin/skin/default/skin.css" />
     <link rel="stylesheet" type="text/css" href="/Public/static/h-ui.admin/css/style.css" />
     <!--[if IE 6]>
     <script type="text/javascript" src="/Public/lib/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
     <title>个人中心</title>
 </head>
@@ -55,7 +57,8 @@
             <dt><i class="Hui-iconfont">&#xe620;</i> 资源浏览<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="/index.php/Home/Assistant/lookResource" data-title="浏览资源" href="javascript:void(0)">浏览资源</a></li>
+                    <li><a data-href="/index.php/Home/Assistant/resource" data-title="资源浏览" href="javascript:void(0)">资源浏览</a></li>
+                    <li><a data-href="/index.php/Home/Assistant/course" data-title="课程安排" href="javascript:void(0)">课程安排</a></li>
                 </ul>
             </dd>
         </dl>

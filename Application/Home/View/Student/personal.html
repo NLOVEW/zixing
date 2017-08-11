@@ -15,21 +15,23 @@
 		<table class="table table-bordered table-hover" style="border-color: #00a0e9;text-align: center">
 			<thead>
 			<tr class="info">
-				<th style="text-align: center">ID</th>
+				<th style="text-align: center">学号</th>
 				<th style="text-align: center">姓名</th>
 				<th style="text-align: center">性别</th>
-				<th style="text-align: center">角色</th>
-				<th style="text-align: center">班级</th>
+				<th style="text-align: center">职务</th>
+				<th style="text-align: center">所教课程</th>
 			</tr>
 			</thead>
 			<tbody>
-			<tr class="warning">
-				<td>10086</td>
-				<td>张三</td>
-				<td>男</td>
-				<td>学生</td>
-				<td>一班</td>
-			</tr>
+			<volist name="data" id="student">
+				<tr class="warning">
+					<td><{$student.s_no}></td>
+					<td><{$student.s_name}></td>
+					<td><{$student.s_sex}></td>
+					<td><{$student.s_position}></td>
+					<td><{$student.s_class}></td>
+				</tr>
+			</volist>
 			</tbody>
 		</table>
 	</div>

@@ -12,7 +12,7 @@
 <h1 class="green">资源浏览</h1>
 <div class="container center-block templatemo-form-list-container templatemo-container lead">
     <div class="col-md-12 table-responsive">
-        <form class="form-inline" style="margin-bottom: 5px" method="post" action="__APP__/Home/Student/search">
+        <form class="form-inline" style="margin-bottom: 5px" method="post" action="__APP__/Home/Assistant/seacher">
             <div class="form-group">
                 <label class="sr-only" for="search">请输入关键字</label>
                 <input type="text" class="form-control" name="key" id="search" placeholder="请输入关键字" style="width: 350px;height: 40px">
@@ -24,6 +24,7 @@
             <tr class="info">
                 <th style="text-align: center;" title="点击排序">文件编号</th>
                 <th style="text-align: center" title="点击排序">文件名称</th>
+                <th style="text-align: center" title="点击排序">所属课程</th>
                 <th style="text-align: center" title="点击排序">文件类型</th>
                 <th style="text-align: center" title="点击排序">文件大小</th>
                 <th style="text-align: center">在线浏览</th>
@@ -34,6 +35,7 @@
                 <tr class="warning">
                     <td><{$data.r_id}></td>
                     <td><{$data.r_name}></td>
+                    <td><{$data.r_course}></td>
                     <td><{$data.r_type}></td>
                     <td><{$data.r_size}></td>
                     <td>

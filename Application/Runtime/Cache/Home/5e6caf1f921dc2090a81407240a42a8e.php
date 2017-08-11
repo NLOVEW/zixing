@@ -57,6 +57,7 @@
             <dt><i class="Hui-iconfont">&#xe620;</i> 资源浏览<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
+                    <li><a data-href="/index.php/Home/Student/course" data-title="课程安排" href="javascript:void(0)">课程安排</a></li>
                     <li><a data-href="/index.php/Home/Student/lookResource" data-title="浏览资源" href="javascript:void(0)">浏览资源</a></li>
                 </ul>
             </dd>

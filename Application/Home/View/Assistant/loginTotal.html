@@ -21,13 +21,21 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="warning">
-                <td>192.168.1.125</td>
-                <td>长沙</td>
-                <td>2017/7/25</td>
-            </tr>
+            <volist name="record" id="data">
+                <tr class="warning">
+                    <td><{$data.lr_ip}></td>
+                    <td>
+                        <switch name="data.lr_address">
+                            <case value="---">局域网访问</case>
+                            <default /><{$data.lr_address}>
+                        </switch>
+                    </td>
+                    <td><{$data.lr_time}></td>
+                </tr>
+            </volist>
             </tbody>
         </table>
+        <p style="text-align: center;color: #9724ff;"><{$page}></p>
     </div>
 </div>
 </body>

@@ -22,8 +22,7 @@
             $this->display();
         }
 
-        public function loginCheck()
-        {
+        public function loginCheck(){
             $userID = $_POST['userID'];
             $password = $_POST['password'];
             $admin=M('Administrator');
@@ -46,7 +45,7 @@
                     $this->error("验证码错误");
                     return;
                 } else {
-                    $user=$admin->query('select Ad_name,Ad_password from Administrator where Ad_id=%d',$userID);
+                    $user=$admin->query("select Ad_name,Ad_password from Administrator where Ad_id='$userID'");
                     $userName=$user[0]['ad_name'];
                     $pwd=$user[0]['ad_password'];
                     if(strcmp($password,$pwd)==0){

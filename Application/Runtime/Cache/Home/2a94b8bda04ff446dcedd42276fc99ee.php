@@ -91,157 +91,41 @@
                          </span>
                      </div>
                 </form>
-                <!--<a href="#" class="btn-outline">查看详细介绍</a>-->
             </div>
         </div>
     </div>
-
     <div class="container-fluid">
         <section class="work-list" >
             <div class="inner" id="work-feed1">
                 <article class="work-item " data-show="on-scroll" >
                     <a href="/index.php/Home/Login/login">
                         <picture>
-                            <img src='/Public/Images/course/1.jpg' border='0' width='120' height='120' alt='计算机基础'>
+                            <img src='/Public/Images/course/7.jpg' border='0' width='120' height='120' alt='计算机基础'>
                         </picture>
                         <div class="content">
                             <div>
                                 <div>
-                                    <h2>课程安排</h2>
+                                    <h2>课程信息</h2>
                                     <h1>教学课程安排</h1>
                                 </div>
                             </div>
-                        </div></a>
+                        </div>
+                    </a>
                 </article>
             </div>
         </section>
         <section class="work-list" >
             <div class="inner" id="work-feed2">
-
                 <article class="work-item " data-show="on-scroll" >
                     <a href="/index.php/Home/Login/login">
                         <picture>
-                            <img src='/Public/Images/course/2.jpg' border='0' width='120' height='120' alt='C++程序设计'>
+                            <img src='/Public/Images/course/4.jpg' border='0' width='120' height='120' alt='C++程序设计'>
                         </picture>
                         <div class="content">
                             <div>
                                 <div>
-                                    <h2>C++程序设计</h2>
-                                    <h1>C、C++、数据结构</h1>
-                                </div>
-                            </div>
-                        </div></a>
-                </article>
-
-            </div>
-        </section>
-        <section class="work-list" >
-            <div class="inner" id="work-feed3">
-                <article class="work-item " data-show="on-scroll" >
-                    <a href="/index.php/Home/Login/login">
-                        <picture>
-                            <img src='/Public/Images/course/3.jpg' border='0' width='120' height='120' alt='Java基础编程'>
-                        </picture>
-                        <div class="content">
-                            <div>
-                                <div>
-                                    <h2>Java基础编程</h2>
-                                    <h1>Java语言基本语法、编程逻辑</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-            </div>
-        </section>
-        <section class="work-list" >
-            <div class="inner" id="work-feed4">
-                <article class="work-item " data-show="on-scroll" >
-                    <a href="/index.php/Home/Login/login">
-                        <picture>
-                            <img src="/Public/Images/course/5.jpg" border='0' width='120' height='120' alt='人工智能基础（1）'>
-                        </picture>
-                        <div class="content">
-                            <div>
-                                <div>
-                                    <h2>人工智能基础（1）</h2>
-                                    <h1>状态空间表示，智能搜索</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-            </div>
-        </section>
-        <section class="work-list" >
-            <div class="inner" id="work-feed5">
-                <article class="work-item " data-show="on-scroll" >
-                    <a href="/index.php/Home/Login/login">
-                        <picture>
-                            <img src='/Public/Images/course/4.jpg' border='0' width='120' height='120' alt='SQL'>
-                        </picture>
-                        <div class="content">
-                            <div>
-                                <div>
-                                    <h2>SQL</h2>
-                                    <h1>数据库、SQL语言、数据库开发</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-            </div>
-        </section>
-        <section class="work-list" >
-            <div class="inner" id="work-feed6">
-                <article class="work-item " data-show="on-scroll" >
-                    <a href="/index.php/Home/Login/login">
-                        <picture>
-                            <img src='/Public/Images/course/6.jpg' border='0' width='120' height='120' alt='Java Web'>
-                        </picture>
-                        <div class="content">
-                            <div>
-                                <div>
-                                    <h2>Java Web</h2>
-                                    <h1>HTML/CSS页面重构、基本JavaScript和JQuery框架</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-            </div>
-        </section>
-        <section class="work-list" >
-            <div class="inner" id="work-feed7">
-                <article class="work-item " data-show="on-scroll" >
-                    <a href="/index.php/Home/Login/login">
-                        <picture>
-                            <img src='/Public/Images/course/8.jpg' border='0' width='120' height='120' alt='人工智能基础（2）'>
-                        </picture>
-                        <div class="content">
-                            <div>
-                                <div>
-                                    <h1>人工智能基础（2）</h1>
-                                    <h2>神经网络，进化计算，机器学习，模式识别</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-            </div>
-        </section>
-        <section class="work-list" >
-            <div class="inner" id="work-feed8">
-                <article class="work-item " data-show="on-scroll" >
-                    <a href="/index.php/Home/Login/login">
-                        <picture>
-                            <img src='/Public/Images/course/7.jpg' border='0' width='120' height='120' alt='职业导向训练'>
-                        </picture>
-                        <div class="content">
-                            <div>
-                                <div>
-                                    <h2>职业导向训练</h2>
-                                    <h1>职业规划、面试技巧、面试模拟</h1>
+                                    <h2>教学资源信息</h2>
+                                    <h1>学习有关资料（文档，视频等）</h1>
                                 </div>
                             </div>
                         </div>
@@ -250,8 +134,20 @@
             </div>
         </section>
     </div>
-    <!--<a class="full-btn btn-outline" id="show-more" href="#" data-show="on-scroll">©2017   海冰科技</a>-->
-    <p style="text-align: center;">©2017   海冰科技</p>
+    <footer class="footer">
+        <div class="nav">
+            <ul id="menu">
+                <li>自兴人工智能学院</li>
+                <li>湖南省 长沙市 高新区 麓谷大道658号麓谷信息港A座7楼</li>
+                <li>咨询电话: 0731-8223 3200</li>
+                <li>邮箱: zxai@zixingai.com  </li>
+                <li>网址：www.zixingai.com</li>
+            </ul>
+        </div>
+        <div class="info">
+            <p class="copyright"><a href="http://www.zixingai.com"> Copyright ©  </a><br />自兴人工智能<br></p>
+        </div>
+    </footer>
 </div>
 </body>
 </html>
