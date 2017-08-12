@@ -50,7 +50,7 @@ width:500px;
 height:500px;
 position:fixed;top:200px;left:0px;right:-77px;
 margin:0 auto;
-background: no-repeat url("../images/gif-6-1-1.png") left top;
+background: no-repeat url("") left top;
 background-size: 400px 400px;
 
 z-index:2;
@@ -88,7 +88,7 @@ opacity:0.70;
 .box-a .m-5{
 width:300px;
 height:100px;
-background:url(../images/a-bj-.png);
+background:url();
 position:absolute;top:300px;left:0px;
 z-index:5;
 margin-top:20px;

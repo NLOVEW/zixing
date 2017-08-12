@@ -8,6 +8,7 @@
     <load href="__PUBLIC__/LoginConfig2/css/normalize.css" />
     <load href="__PUBLIC__/LoginConfig2/css/demo.css" />
     <load href="__PUBLIC__/LoginConfig2/css/component.css" />
+    <link rel="stylesheet" media="screen" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css">
     <!--[if IE]>
     <script src="__PUBLIC__/LoginConfig2/js/html5.js"></script>
     <![endif]-->
@@ -19,7 +20,7 @@
             <canvas id="demo-canvas"></canvas>
             <div class="logo_box">
                 <h3>自兴人工智能欢迎您</h3>
-                <form action="__APP__/Home/Login/loginCheck"  method="post">
+                <form action="__APP__/Home/Login/loginCheck" id="myForm" method="post">
                     <div class="input_outer">
                         <span class="u_user"></span>
                         <input name="userID" class="text" style="color: #FFFFFF !important" type="text" placeholder="请输入账户">
@@ -30,7 +31,7 @@
                     </div>
                     <div class="input_outer1">
                         <span class="us_uer"></span>
-                        <input name="code" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入验证码">
+                        <input name="code" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="text" placeholder="请输入验证码">
                         <img  style="margin-left: 182px;border-radius: 50px; width: 210px;height: 60px" id="code" src="__APP__/Home/Login/verify" onclick="this.src='__APP__/Home/Login/verify?'+Math.random()" title="点击换一个"/>
                     </div>
                     <div class="mb2">
@@ -40,11 +41,58 @@
             </div>
         </div>
     </div>
-</div><!-- /container -->
-<script src="__PUBLIC__/LoginConfig2/js/TweenLite.min.js"></script>
-<script src="__PUBLIC__/LoginConfig2/js/EasePack.min.js"></script>
-<script src="__PUBLIC__/LoginConfig2/js/rAF.js"></script>
-<script src="__PUBLIC__/LoginConfig2/js/demo-1.js"></script>
 </div>
+</div>
+<load href="__PUBLIC__/ValidataConfig/jquery-1.11.0.js"/>
+<load href="__PUBLIC__/LoginConfig2/js/TweenLite.min.js"/>
+<load href="__PUBLIC__/LoginConfig2/js/EasePack.min.js"/>
+<load href="__PUBLIC__/LoginConfig2/js/rAF.js"/>
+<load href="__PUBLIC__/LoginConfig2/js/demo-1.js"/>
+<load href="__PUBLIC__/ValidataConfig/jquery.validate.js"/>
+<load href="__PUBLIC__/ValidataConfig/jquery-ui.min.js"/>
 </body>
+<script>
+
+    $.validator.setDefaults({
+        showErrors: function(map, list) {
+            var focussed = document.activeElement;
+            if (focussed && $(focussed).is("input, textarea")) {
+                $(this.currentForm).tooltip("close", {
+                    currentTarget: focussed
+                }, true)
+            }
+            this.currentElements.removeAttr("title").removeClass("ui-state-highlight");
+            $.each(list, function(index, error) {
+                $(error.element).attr("title", error.message).addClass("ui-state-highlight");
+            });
+            if (focussed && $(focussed).is("input, textarea")) {
+                $(this.currentForm).tooltip("open", {
+                    target: focussed
+                });
+            }
+        }
+    });
+
+    $(function () {
+        $("#myForm").tooltip({
+            show: false,
+            hide: false
+        });
+        $('#myForm').validate({
+            rules:{
+                userID:{
+                    required:true,
+                    digits:true
+                },
+                password:"required",
+                code:"required"
+            },
+            messages:{
+                userID:"账户不得为空",
+                password:"密码不得为空",
+                code:"验证码不得为空"
+            }
+        });
+    });
+</script>
 </html>

@@ -128,7 +128,7 @@
     var checkPassword=document.getElementById('checkPassword');
 
     function check() {
-        if(userId.value==''&&userName.value==''&&firstPassword.value==''&&userSex.value==''&&checkPassword.value==''){
+        if(userId.value==''||userName.value==''||firstPassword.value==''||userSex.value==''||checkPassword.value==''){
             alert("所有选项不得为空");
         }else{
             submitForm.action="__APP__/Home/User/completeAddUser";

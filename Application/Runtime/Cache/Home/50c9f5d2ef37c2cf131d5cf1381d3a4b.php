@@ -3,9 +3,10 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>自兴人工智能学院后台管理</title>
+  <title>登录</title>
   <link rel="stylesheet" type="text/css" href="/Public/LoginConfig/assets/css/style.css" />
   
+  <link rel="stylesheet" media="screen" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css">
 </head>
 <body onLoad="sendRequest()" >
 <div class="videozz"></div>
@@ -13,7 +14,7 @@
   <div class="box-a">
     <div class="m-2">
       <div class="m-2-1">
-        <form action="/index.php/Home/Login/loginCheck" method="post">
+        <form action="/index.php/Home/Login/loginCheck" id="myForm" method="post">
           <div class="m-2-2">
             <input name="userId" type="text" placeholder="请输入账号"  style="width: 350px;height: 50px"/>
           </div>
@@ -22,7 +23,7 @@
           </div>
           <div class="m-2-2-1">
             <input name="code" type="text" placeholder="请输入验证码" style="width: 150px;height: 50px"/>
-            <img  id="code" src="/index.php/Home/Login/verify" onclick="this.src='/index.php/Home/Login/verify?'+Math.random()" style="width: 180px;height: 50px" alt="点击换一个"/>
+            <img  id="code" src="/index.php/Home/Login/verify" onclick="this.src='/index.php/Home/Login/verify?'+Math.random()" style="width: 180px;height: 50px" title="点击换一个"/>
           </div>
           <div class="m-2-2">
             <button type="submit" value="登录" style="width: 350px;height: 50px;cursor: pointer"/> 登录
@@ -78,9 +79,53 @@
     <div class="m-24" id="localtime"></div>
   </div>
 </div>
+<script type="text/javascript" src="/Public/ValidataConfig/jquery-1.11.0.js"></script>
 <script type="text/javascript" src="/Public/LoginConfig/assets/js/common.min.js"></script>
+<script type="text/javascript" src="/Public/ValidataConfig/jquery.validate.js"></script>
+<script type="text/javascript" src="/Public/ValidataConfig/jquery-ui.min.js"></script>
+
 </body>
 <script>
+    $.validator.setDefaults({
+        showErrors: function(map, list) {
+            var focussed = document.activeElement;
+            if (focussed && $(focussed).is("input, textarea")) {
+                $(this.currentForm).tooltip("close", {
+                    currentTarget: focussed
+                }, true)
+            }
+            this.currentElements.removeAttr("title").removeClass("ui-state-highlight");
+            $.each(list, function(index, error) {
+                $(error.element).attr("title", error.message).addClass("ui-state-highlight");
+            });
+            if (focussed && $(focussed).is("input, textarea")) {
+                $(this.currentForm).tooltip("open", {
+                    target: focussed
+                });
+            }
+        }
+    });
 
+    $(function () {
+        $("#myForm").tooltip({
+            show: false,
+            hide: false
+        });
+        $('#myForm').validate({
+            rules:{
+                userId:{
+                    required:true,
+                    digits:true
+                },
+                password:"required",
+                code:"required"
+            },
+            messages:{
+                userId:"账户不得为空",
+                password:"密码不得为空",
+                code:"验证码不得为空"
+            }
+        });
+    });
 </script>
 </html>

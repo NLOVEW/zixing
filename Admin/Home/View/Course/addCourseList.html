@@ -10,6 +10,7 @@
     <load href="__PUBLIC__/Bootstrap/css/bootstrap-theme.css"/>
     <load href="__PUBLIC__/Css/font-awesome.min.css"/>
     <load href="__PUBLIC__/Css/templatemo_style.css"/>
+    <link rel="stylesheet" media="screen" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css">
     <title>添加课程</title>
 </head>
 
@@ -55,29 +56,61 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-info" onclick="check()" style="font-size: 20px">提交</button>
+                    <button type="submit" class="btn btn-info"  style="font-size: 20px">提交</button>
                 </div>
             </div>
         </form>
     </div>
 </body>
-
+<load href="__PUBLIC__/ValidataConfig/jquery-1.11.0.js"/>
+<load href="__PUBLIC__/ValidataConfig/jquery.validate.js"/>
+<load href="__PUBLIC__/ValidataConfig/jquery-ui.min.js"/>
 <script>
-    var courseName=document.getElementById('courseName');
-    var classHour=document.getElementById('classHour');
-    var practiceHour=document.getElementById('practiceHour');
-    var keyWord=document.getElementById('keyWord');
-    var introduce=document.getElementById('introduce');
-    var essentials=document.getElementById('essentials');
-    var submitForm=document.getElementById('submitForm');
-
-   function check() {
-        if(courseName.value==''&&classHour.value==''&&practiceHour.value==''&&keyWord.value==''&&introduce.value==''&&essentials.value==''){
-            alert("所有选项不得为空");
-        }else{
-            submitForm.action="__APP__/Home/Course/addCourse";
+    $.validator.setDefaults({
+        showErrors: function(map, list) {
+            var focussed = document.activeElement;
+            if (focussed && $(focussed).is("input, textarea")) {
+                $(this.currentForm).tooltip("close", {
+                    currentTarget: focussed
+                }, true)
+            }
+            this.currentElements.removeAttr("title").removeClass("ui-state-highlight");
+            $.each(list, function(index, error) {
+                $(error.element).attr("title", error.message).addClass("ui-state-highlight");
+            });
+            if (focussed && $(focussed).is("input, textarea")) {
+                $(this.currentForm).tooltip("open", {
+                    target: focussed
+                });
+            }
         }
-   }
+    });
 
+    $(function () {
+        $("#submitForm").tooltip({
+            show: false,
+            hide: false
+        });
+        $('#submitForm').validate({
+            rules:{
+                courseName:{
+                    required:true,
+                },
+                classHour:"required",
+                practiceHour:"required",
+                keyWord:"required",
+                introduce:"required",
+                essentials:"required"
+            },
+            messages:{
+                courseName:"不得为空",
+                classHour:"不得为空",
+                practiceHour:"不得为空",
+                keyWord:"不得为空",
+                introduce:"不得为空",
+                essentials:"不得为空",
+            }
+        });
+    });
 </script>
 </html>
