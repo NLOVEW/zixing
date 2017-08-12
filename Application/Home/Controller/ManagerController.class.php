@@ -355,7 +355,7 @@
 
         }
 
-        public function searchResource(){
+        public function resource(){
             $resource=M('resource');
             $count= $resource->count();// 查询满足要求的总记录数 $map表示查询条件
             $Page = new \Think\Page($count,8);
@@ -402,6 +402,21 @@
             $this->display();
         }
 
+
+        function course(){
+            $course=M('course');
+            $count= $course->count();// 查询满足要求的总记录数 $map表示查询条件
+            $Page = new \Think\Page($count,8);
+            $Page->setConfig('prev','上一页');
+            $Page->setConfig('next','下一页');
+            $show = $Page->show();// 分页显示输出
+            // 进行分页数据查询
+            $allData = $course->order('c_id asc')->limit($Page->firstRow.','.$Page->listRows)->select();
+            $this->assign('allData',$allData);// 赋值数据集
+            $this->assign('page',$show);// 赋值分页输出
+            $this->display();
+        }
+
         function remove(){
             $id=$_POST['id'];
             $name=$_POST['name'];
@@ -417,7 +432,9 @@
         }
 
         function back(){
-            session(null);
+            session('userID',null);
+            session('userName',null);
+            session('position',null);
+            $this->redirect('Login/login','','','');
         }
-
     }

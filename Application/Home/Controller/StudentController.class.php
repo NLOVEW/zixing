@@ -67,7 +67,7 @@
         }
 
         //资源浏览
-        function lookResource(){
+        function resource(){
             $share_resource=M('share_resource');
             $student=M('student');
             $id=session('userID');
@@ -138,6 +138,9 @@
         }
 //        退出页面
         function back(){
-            session(null);
+            session('userID',null);
+            session('userName',null);
+            session('position',null);
+            $this->redirect('Login/login','','','');
         }
     }

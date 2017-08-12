@@ -70,7 +70,10 @@ class AssistantController extends Controller{
 
 //        退出页面
     function back(){
-        session(null);
+        session('userID',null);
+        session('userName',null);
+        session('position',null);
+        $this->redirect('Login/login','','','');
     }
 
     function resource(){
