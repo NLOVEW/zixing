@@ -417,6 +417,20 @@
             $this->display();
         }
 
+        function show(){
+            $id=$_GET['id'];
+            $name=$_GET['name'];
+            $userId=session('userID');
+            $userName=session('userName');
+            $time=date("Y-m-d H:i:s");
+            $cur=M('course_user_record');
+            $cur->execute("insert into course_user_record VALUES ('$id','$name','$userId','$userName','浏览','$time')");
+            $course=M('course');
+            $data=$course->query("select * from course WHERE c_id='$id'");
+            $this->assign('data',$data);
+            $this->display();
+        }
+
         function remove(){
             $id=$_POST['id'];
             $name=$_POST['name'];
