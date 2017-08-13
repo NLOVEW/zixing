@@ -436,6 +436,8 @@
             $name=$_POST['name'];
             $resource=M('resource');
             $resource->execute("delete from resource where r_id='$id'");
+            $student=M('share_resource');
+            $student->execute("delete from share_resource where r_id='$id'");
             $userId=session("userID");
             $userName=session('userName');
             $time=date("Y-m-d H:i:s");
