@@ -73,13 +73,14 @@
             $id=session('userID');
             $data=$student->query("select * from student WHERE s_no='$id'");
             $class=$data[0]['s_class'];
-            $count= $share_resource->where("s_class='$class'")->count();// 查询满足要求的总记录数 $map表示查询条件
+            $count=$share_resource->query("select distinct r_uploaderphone from share_resource WHERE s_class='$class'");
+            $count=count($count);
             $Page = new \Think\Page($count,8);
             $Page->setConfig('prev','上一页');
             $Page->setConfig('next','下一页');
             $show = $Page->show();// 分页显示输出
             // 进行分页数据查询
-            $allData = $share_resource->where("s_class='$class'")->order('r_id asc')->limit($Page->firstRow.','.$Page->listRows)->select();
+            $allData=$share_resource->query("select distinct r_uploaderphone,r_uploadername from share_resource limit $Page->firstRow,$Page->listRows");
             $this->assign('allData',$allData);// 赋值数据集
             $this->assign('page',$show);// 赋值分页输出
             $this->display();
@@ -141,6 +142,22 @@
             session('userID',null);
             session('userName',null);
             session('position',null);
-            $this->redirect('Login/login','','','');
+            $this->display('/Login/login');
+        }
+
+        function resourceShow(){
+            $id=$_GET['id'];
+            $resource=M('resource');
+            $values=$resource->query("select * from resource WHERE r_uploaderphone='$id'");
+            $count= count($values);// 查询满足要求的总记录数
+            $Page = new \Think\Page($count,8);
+            $Page->setConfig('prev','上一页');
+            $Page->setConfig('next','下一页');
+            $show = $Page->show();// 分页显示输出
+            // 进行分页数据查询
+            $allData = $resource->where("r_uploaderphone='$id'")->limit($Page->firstRow.','.$Page->listRows)->select();
+            $this->assign('allData',$allData);// 赋值数据集
+            $this->assign('page',$show);// 赋值分页输出
+            $this->display();
         }
     }

@@ -17,78 +17,78 @@
 <div class="container center-block templatemo-form-list-container templatemo-container lead">
     <div class="col-md-12 table-responsive">
         <form method="post" action="__APP__/Home/Manager/role">
-        <table class="table table-bordered table-hover"  style="border-color: #00a0e9;text-align: center">
-            <thead>
-            <tr class="info">
-                <th style="text-align: center;" >班级</th>
-                <th style="text-align: center" >删除已分配资源</th>
-                <th style="text-align: center" >所有可分配资源</th>
-            </tr>
-            </thead>
-            <tbody>
-            <volist name="allClass" id="class">
-                <tr class="warning">
-                    <td><{$class['id']}></td>
-                    <td>
-                        <select name="<{$class.id}>D[]" class="selectpicker form-control" multiple  data-hide-disabled="true" data-live-search="true" data-size="6" data-live-search-placeholder="检索">
-                            <optgroup label="文档">
-                                <volist name="class['doc']" id="doc">
-                                    <option value="<{$doc.r_id}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
-                                </volist>
-                                <volist name="class['execl']" id="execl">
-                                    <option value="<{$execl.r_id}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
-                                </volist>
-                                <volist name="class['ppt']" id="ppt">
-                                    <option value="<{$ppt.r_id}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
-                                </volist>
-                                <volist name="class['pdf']" id="pdf">
-                                    <option value="<{$pdf.r_id}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
-                                </volist>
-                            </optgroup>
-                            <optgroup label="视频">
-                                <volist name="class['video']" id="video">
-                                    <option value="<{$video.r_id}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
-                                </volist>
-                            </optgroup>
-                            <optgroup label="压缩文件">
-                                <volist name="class['other']" id="other">
-                                    <option value="<{$other.r_id}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
-                                </volist>
-                            </optgroup>
-                        </select>
-                    </td>
-                    <td>
-                        <select  name="<{$class.id}>A[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
-                            <optgroup label="文档">
-                                <volist name="docType" id="doc">
-                                    <option value="<{$doc.r_id}>-><{$doc.r_name}>-><{$doc.r_type}>-><{$doc.r_size}>-><{$doc.r_address}>" style="color: #5673ff;font-size: 15px"><{$doc.r_name}></option>
-                                </volist>
-                                <volist name="execlType" id="execl">
-                                    <option value="<{$execl.r_id}>-><{$execl.r_name}>-><{$execl.r_type}>-><{$execl.r_size}>-><{$execl.r_address}>" style="color: #5673ff;font-size: 15px"><{$execl.r_name}></option>
-                                </volist>
-                                <volist name="pptType" id="ppt">
-                                    <option value="<{$ppt.r_id}>-><{$ppt.r_name}>-><{$ppt.r_type}>-><{$ppt.r_size}>-><{$ppt.r_address}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_name}></option>
-                                </volist>
-                                <volist name="pdfType" id="pdf">
-                                    <option value="<{$pdf.r_id}>-><{$pdf.r_name}>-><{$pdf.r_type}>-><{$pdf.r_size}>-><{$pdf.r_address}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_name}></option>
-                                </volist>
-                            </optgroup>
-                            <optgroup label="视频">
-                                <volist name="videoType" id="video">
-                                    <option value="<{$video.r_id}>-><{$video.r_name}>-><{$video.r_type}>-><{$video.r_size}>-><{$video.r_address}>" style="color: #5673ff;font-size: 15px"><{$video.r_name}></option>
-                                </volist>
-                            </optgroup>
-                            <optgroup label="压缩文件">
-                                <volist name="otherType" id="other">
-                                    <option value="<{$other.r_id}>-><{$other.r_name}>-><{$other.r_type}>-><{$other.r_size}>-><{$other.r_address}>" style="color: #5673ff;font-size: 15px"><{$other.r_name}></option>
-                                </volist>
-                            </optgroup>
-                        </select>
-                    </td>
+            <table class="table table-bordered table-hover"  style="border-color: #00a0e9;text-align: center">
+                <thead>
+                <tr class="info">
+                    <th style="text-align: center;" >班级</th>
+                    <th style="text-align: center" >删除已分配资源</th>
+                    <th style="text-align: center" >所有可分配资源</th>
                 </tr>
-            </volist>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                <volist name="allClass" id="class">
+                    <tr class="warning">
+                        <td><{$class['id']}></td>
+                        <td>
+                            <select name="<{$class.id}>D[]" class="selectpicker form-control" multiple  data-hide-disabled="true" data-live-search="true" data-size="6" data-live-search-placeholder="检索">
+                                <optgroup label="文档">
+                                    <volist name="class['doc']" id="doc">
+                                        <option value="<{$doc.r_id}>" style="color: #5673ff;font-size: 15px"><{$doc.r_uploadername}>/<{$doc.r_name}></option>
+                                    </volist>
+                                    <volist name="class['execl']" id="execl">
+                                        <option value="<{$execl.r_id}>" style="color: #5673ff;font-size: 15px"><{$execl.r_uploadername}>/<{$execl.r_name}></option>
+                                    </volist>
+                                    <volist name="class['ppt']" id="ppt">
+                                        <option value="<{$ppt.r_id}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_uploadername}>/<{$ppt.r_name}></option>
+                                    </volist>
+                                    <volist name="class['pdf']" id="pdf">
+                                        <option value="<{$pdf.r_id}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_uploadername}>/<{$pdf.r_name}></option>
+                                    </volist>
+                                </optgroup>
+                                <optgroup label="视频">
+                                    <volist name="class['video']" id="video">
+                                        <option value="<{$video.r_id}>" style="color: #5673ff;font-size: 15px"><{$video.r_uploadername}>/<{$video.r_name}></option>
+                                    </volist>
+                                </optgroup>
+                                <optgroup label="压缩文件">
+                                    <volist name="class['other']" id="other">
+                                        <option value="<{$other.r_id}>" style="color: #5673ff;font-size: 15px"><{$other.r_uploadername}>/<{$other.r_name}></option>
+                                    </volist>
+                                </optgroup>
+                            </select>
+                        </td>
+                        <td>
+                            <select  name="<{$class.id}>A[]" class="selectpicker form-control" multiple data-live-search="true" data-live-search-placeholder="检索" data-actions-box="true" data-size="6">
+                                <optgroup label="文档">
+                                    <volist name="docType" id="doc">
+                                        <option value="<{$doc.r_id}>-><{$doc.r_name}>-><{$doc.r_type}>-><{$doc.r_size}>-><{$doc.r_address}>-><{$doc.r_uploadername}>-><{$doc.r_course}>-><{$doc.r_uploaderphone}>" style="color: #5673ff;font-size: 15px"><{$doc.r_uploadername}>/<{$doc.r_name}></option>
+                                    </volist>
+                                    <volist name="execlType" id="execl">
+                                        <option value="<{$execl.r_id}>-><{$execl.r_name}>-><{$execl.r_type}>-><{$execl.r_size}>-><{$execl.r_address}>-><{$execl.r_uploadername}>-><{$execl.r_course}>-><{$execl.r_uploaderphone}>" style="color: #5673ff;font-size: 15px"><{$execl.r_uploadername}>/<{$execl.r_name}></option>
+                                    </volist>
+                                    <volist name="pptType" id="ppt">
+                                        <option value="<{$ppt.r_id}>-><{$ppt.r_name}>-><{$ppt.r_type}>-><{$ppt.r_size}>-><{$ppt.r_address}>-><{$ppt.r_uploadername}>-><{$ppt.r_course}>-><{$ppt.r_uploaderphone}>" style="color: #5673ff;font-size: 15px"><{$ppt.r_uploadername}>/<{$ppt.r_name}></option>
+                                    </volist>
+                                    <volist name="pdfType" id="pdf">
+                                        <option value="<{$pdf.r_id}>-><{$pdf.r_name}>-><{$pdf.r_type}>-><{$pdf.r_size}>-><{$pdf.r_address}>-><{$pdf.r_uploadername}>-><{$pdf.r_course}>-><{$pdf.r_uploaderphone}>" style="color: #5673ff;font-size: 15px"><{$pdf.r_uploadername}>/<{$pdf.r_name}></option>
+                                    </volist>
+                                </optgroup>
+                                <optgroup label="视频">
+                                    <volist name="videoType" id="video">
+                                        <option value="<{$video.r_id}>-><{$video.r_name}>-><{$video.r_type}>-><{$video.r_size}>-><{$video.r_address}>-><{$video.r_uploadername}>-><{$video.r_course}>-><{$video.r_uploaderphone}>" style="color: #5673ff;font-size: 15px"><{$video.r_uploadername}>/<{$video.r_name}></option>
+                                    </volist>
+                                </optgroup>
+                                <optgroup label="压缩文件">
+                                    <volist name="otherType" id="other">
+                                        <option value="<{$other.r_id}>-><{$other.r_name}>-><{$other.r_type}>-><{$other.r_size}>-><{$other.r_address}>-><{$other.r_uploadername}>-><{$other.r_course}>-><{$other.r_uploaderphone}>" style="color: #5673ff;font-size: 15px"><{$other.r_uploadername}>/<{$other.r_name}></option>
+                                    </volist>
+                                </optgroup>
+                            </select>
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+            </table>
             <p style="text-align: center;margin-top: 10px"><button type="submit" class="btn btn-info" style="width: 80px;height: 40px">提交</button> </p>
         </form>
     </div>

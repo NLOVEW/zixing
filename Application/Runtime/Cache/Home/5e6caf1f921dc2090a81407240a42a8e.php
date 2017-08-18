@@ -32,7 +32,7 @@
                     <li class="dropDown dropDown_hover">
                         <a href="#" class="dropDown_A"><?php echo ($username); ?><i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
-                            <li><a href="/index.php/Home/Login/login">退出</a></li>
+                            <li><a href="/index.php/Home/Student/back">退出</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -58,7 +58,7 @@
             <dd>
                 <ul>
                     <li><a data-href="/index.php/Home/Student/course" data-title="课程安排" href="javascript:void(0)">课程安排</a></li>
-                    <li><a data-href="/index.php/Home/Student/lookResource" data-title="浏览资源" href="javascript:void(0)">浏览资源</a></li>
+                    <li><a data-href="/index.php/Home/Student/resource" data-title="浏览资源" href="javascript:void(0)">浏览资源</a></li>
                 </ul>
             </dd>
         </dl>

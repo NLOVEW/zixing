@@ -57,7 +57,7 @@
             //从数据库获取登录数据显示到前台
             $toatl=M('login_record');
             $id=session('userID');
-            $count= $toatl->query("select * from login_record WHERE lr_id=$id");// 查询满足要求的总记录数 $map表示查询条件
+            $count= $toatl->query("select * from login_record WHERE lr_id=$id");// 查询满足要求的总记录数
             $count=count($count);
             $Page = new \Think\Page($count,15);
             $Page->setConfig('prev','上一页');
@@ -74,18 +74,20 @@
             session('userID',null);
             session('userName',null);
             session('position',null);
-            $this->redirect('Login/login','','','');
+            $this->display('/Login/login');
         }
 
-        function resource(){
+        public function resource(){
             $resource=M('resource');
-            $count= $resource->count();// 查询满足要求的总记录数 $map表示查询条件
-            $Page = new \Think\Page($count,8);
+            $count=$resource->query("select distinct r_uploadername from resource");
+            $count=count($count);
+            $Page = new \Think\Page($count,10);
             $Page->setConfig('prev','上一页');
             $Page->setConfig('next','下一页');
             $show = $Page->show();// 分页显示输出
             // 进行分页数据查询
-            $allData = $resource->order('r_id asc')->limit($Page->firstRow.','.$Page->listRows)->select();
+//            $allData = $resource->order('r_id asc')->limit($Page->firstRow.','.$Page->listRows)->select();
+            $allData=$resource->query("select distinct r_uploaderphone,r_uploadername from resource limit $Page->firstRow,$Page->listRows");
             $this->assign('allData',$allData);// 赋值数据集
             $this->assign('page',$show);// 赋值分页输出
             $this->display();
@@ -134,6 +136,22 @@
             $allData = $resource->where("r_id LIKE '%$key%'
             OR r_name LIKE '%$key%' OR r_uploaderphone LIKE '%$key%'
             OR r_course LIKE '%$key%' OR r_keyword LIKE '%$key%'")->limit($Page->firstRow.','.$Page->listRows)->select();
+            $this->assign('allData',$allData);// 赋值数据集
+            $this->assign('page',$show);// 赋值分页输出
+            $this->display();
+        }
+
+        function resourceShow(){
+            $id=$_GET['id'];
+            $resource=M('resource');
+            $values=$resource->query("select * from resource WHERE r_uploaderphone='$id'");
+            $count= count($values);// 查询满足要求的总记录数
+            $Page = new \Think\Page($count,8);
+            $Page->setConfig('prev','上一页');
+            $Page->setConfig('next','下一页');
+            $show = $Page->show();// 分页显示输出
+            // 进行分页数据查询
+            $allData = $resource->where("r_uploaderphone='$id'")->limit($Page->firstRow.','.$Page->listRows)->select();
             $this->assign('allData',$allData);// 赋值数据集
             $this->assign('page',$show);// 赋值分页输出
             $this->display();

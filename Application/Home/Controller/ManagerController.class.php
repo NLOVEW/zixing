@@ -88,6 +88,7 @@
                 }
             }
 
+
             //获取配置信息
             if (isset($_REQUEST["course"])) {
                 $course = $_REQUEST["course"];
@@ -218,13 +219,14 @@
                 @fclose($out);
             }
             $resource=M('resource');
+            $uploaderName=session("userName");
             $uploaderPhone=session('userID');
             $time=date("Y-m-d H:i:s");
             $path=$dataPath.'/'.$name;
             $fileSize=$this->getFileSize($fileSize);
-            $resource->execute("insert into resource(R_name,R_uploaderPhone,R_course,R_keyword,
+            $resource->execute("insert into resource(R_name,R_uploaderName,R_uploaderPhone,R_course,R_keyword,
                                   R_address,R_type,R_time,R_size) VALUES (
-                                  '$name','$uploaderPhone','$course','$keyWord','$path',
+                                  '$name','$uploaderName','$uploaderPhone','$course','$keyWord','$path',
                                   '$type','$time','$fileSize')"
             );
             die('{"jsonrpc" : "2.0", "result" : null, "id" : "id"}');
@@ -265,48 +267,54 @@
                 for($i=0;$i<count($forClass);$i++){
                     if($forClass[$i]['r_type']=='Doc'&&$forClass[$i]['s_class']==$studentData[$j]['s_class']){
                         $doc[]=array('r_id'=>$forClass[$i]['r_id'],'r_name'=>$forClass[$i]['r_name'],
-                            'r_type'=>$forClass[$i]['r_type']);
+                            'r_type'=>$forClass[$i]['r_type'],'r_uploadername'=>$forClass[$i]['r_uploadername']);
                     } elseif ($forClass[$i]['r_type']=='Execl'&&$forClass[$i]['s_class']==$studentData[$j]['s_class']){
                         $execl[]=array('r_id'=>$forClass[$i]['r_id'],'r_name'=>$forClass[$i]['r_name'],
-                            'r_type'=>$forClass[$i]['r_type']);
+                            'r_type'=>$forClass[$i]['r_type'],'r_uploadername'=>$forClass[$i]['r_uploadername']);
                     }elseif ($forClass[$i]['r_type']=='PPT'&&$forClass[$i]['s_class']==$studentData[$j]['s_class']){
                         $ppt[]=array('r_id'=>$forClass[$i]['r_id'],'r_name'=>$forClass[$i]['r_name'],
-                            'r_type'=>$forClass[$i]['r_type']);
+                            'r_type'=>$forClass[$i]['r_type'],'r_uploadername'=>$forClass[$i]['r_uploadername']);
                     }elseif ($forClass[$i]['r_type']=='Pdf'&&$forClass[$i]['s_class']==$studentData[$j]['s_class']){
                         $pdf[]=array('r_id'=>$forClass[$i]['r_id'],'r_name'=>$forClass[$i]['r_name'],
-                            'r_type'=>$forClass[$i]['r_type']);
+                            'r_type'=>$forClass[$i]['r_type'],'r_uploadername'=>$forClass[$i]['r_uploadername']);
                     }elseif ($forClass[$i]['r_type']=='Video'&&$forClass[$i]['s_class']==$studentData[$j]['s_class']){
                         $video[]=array('r_id'=>$forClass[$i]['r_id'],'r_name'=>$forClass[$i]['r_name'],
-                            'r_type'=>$forClass[$i]['r_type']);
+                            'r_type'=>$forClass[$i]['r_type'],'r_uploadername'=>$forClass[$i]['r_uploadername']);
                     }elseif ($forClass[$i]['r_type']=='压缩文件'&&$forClass[$i]['s_class']==$studentData[$j]['s_class']){
                         $other[]=array('r_id'=>$forClass[$i]['r_id'],'r_name'=>$forClass[$i]['r_name'],
-                            'r_type'=>$forClass[$i]['r_type']);
+                            'r_type'=>$forClass[$i]['r_type'],'r_uploadername'=>$forClass[$i]['r_uploadername']);
                     }
                 }
                 $allClass[]=array('id'=>$studentData[$j]['s_class'],'doc'=>$doc,'execl'=>$execl,'ppt'=>$ppt,
                     'pdf'=>$pdf,'video'=>$video,'other'=>$other);
             }
             $this->assign('allClass',$allClass);
-            //过去同类型资源文件
+            //获取同类型资源文件
             for($i=0;$i<count($data);$i++){
                 if($data[$i]['r_type']=='Doc'){
                     $docType[]=array('r_id'=>$data[$i]['r_id'],'r_name'=>$data[$i]['r_name'],
-                        'r_type'=>$data[$i]['r_type'],'r_address'=>$data[$i]['r_address'],'r_size'=>$data[$i]['r_size']);
+                        'r_type'=>$data[$i]['r_type'],'r_address'=>$data[$i]['r_address'],'r_size'=>$data[$i]['r_size'],
+                        'r_uploadername'=>$data[$i]['r_uploadername'], 'r_course'=>$data[$i]['r_course'],'r_uploaderphone'=>$data[$i]['r_uploaderphone']);
                 }elseif ($data[$i]['r_type']=='Execl'){
                     $execlType[]=array('r_id'=>$data[$i]['r_id'],'r_name'=>$data[$i]['r_name'],
-                        'r_type'=>$data[$i]['r_type'],'r_address'=>$data[$i]['r_address'],'r_size'=>$data[$i]['r_size']);
+                        'r_type'=>$data[$i]['r_type'],'r_address'=>$data[$i]['r_address'],'r_size'=>$data[$i]['r_size'],
+                        'r_uploadername'=>$data[$i]['r_uploadername'], 'r_course'=>$data[$i]['r_course'],'r_uploaderphone'=>$data[$i]['r_uploaderphone']);
                 }elseif ($data[$i]['r_type']=='PPT'){
                     $pptType[]=array('r_id'=>$data[$i]['r_id'],'r_name'=>$data[$i]['r_name'],
-                        'r_type'=>$data[$i]['r_type'],'r_address'=>$data[$i]['r_address'],'r_size'=>$data[$i]['r_size']);
+                        'r_type'=>$data[$i]['r_type'],'r_address'=>$data[$i]['r_address'],'r_size'=>$data[$i]['r_size'],
+                        'r_uploadername'=>$data[$i]['r_uploadername'], 'r_course'=>$data[$i]['r_course'],'r_uploaderphone'=>$data[$i]['r_uploaderphone']);
                 }elseif ($data[$i]['r_type']=='Pdf'){
                     $pdfType[]=array('r_id'=>$data[$i]['r_id'],'r_name'=>$data[$i]['r_name'],
-                        'r_type'=>$data[$i]['r_type'],'r_address'=>$data[$i]['r_address'],'r_size'=>$data[$i]['r_size']);
+                        'r_type'=>$data[$i]['r_type'],'r_address'=>$data[$i]['r_address'],'r_size'=>$data[$i]['r_size'],
+                        'r_uploadername'=>$data[$i]['r_uploadername'], 'r_course'=>$data[$i]['r_course'],'r_uploaderphone'=>$data[$i]['r_uploaderphone']);
                 }elseif ($data[$i]['r_type']=='Video'){
                     $videoType[]=array('r_id'=>$data[$i]['r_id'],'r_name'=>$data[$i]['r_name'],
-                        'r_type'=>$data[$i]['r_type'],'r_address'=>$data[$i]['r_address'],'r_size'=>$data[$i]['r_size']);
+                        'r_type'=>$data[$i]['r_type'],'r_address'=>$data[$i]['r_address'],'r_size'=>$data[$i]['r_size'],
+                        'r_uploadername'=>$data[$i]['r_uploadername'], 'r_course'=>$data[$i]['r_course'],'r_uploaderphone'=>$data[$i]['r_uploaderphone']);
                 }elseif ($data[$i]['r_type']=='压缩文件'){
                     $otherType[]=array('r_id'=>$data[$i]['r_id'],'r_name'=>$data[$i]['r_name'],
-                        'r_type'=>$data[$i]['r_type'],'r_address'=>$data[$i]['r_address'],'r_size'=>$data[$i]['r_size']);
+                        'r_type'=>$data[$i]['r_type'],'r_address'=>$data[$i]['r_address'],'r_size'=>$data[$i]['r_size'],
+                        'r_uploadername'=>$data[$i]['r_uploadername'], 'r_course'=>$data[$i]['r_course'],'r_uploaderphone'=>$data[$i]['r_uploaderphone']);
                 }
             }
             $this->assign('docType',$docType);
@@ -320,7 +328,6 @@
 
         public function role(){
             $share_resource=M('share_resource');
-            $resource=M('resource');
             $Student=M('student');
             $forClass=$share_resource->query("select * from share_resource");
             //按照班级序号升序排序并且去除重复班级号
@@ -333,18 +340,20 @@
                 $class=$_POST[$studentData[$i]['s_class'].'D'];
                 $this->delete($class,$share_resource,$studentData[$i]['s_class']);
             }
-            $this->redirect('Manager/forClass','',30,'<P style="color: #5ddfff;font-size: 30px;margin-left: 20px;margin-top: 20px">资源分配操作完成(三秒后自动跳转)</P>');
+            $this->redirect('Resource/forClass','',3,'<P style="color: #5ddfff;font-size: 30px;margin-left: 20px;margin-top: 20px">资源分配操作完成(三秒后自动跳转)</P>');
         }
         private function add($class,$share_resource,$num){
             for($i=0;$i<count($class);$i++){
                 $data=explode('->',$class[$i]);
-                var_dump($data);
                 $id=$data[0];
                 $name=$data[1];
                 $type=$data[2];
                 $size=$data[3];
                 $address=$data[4];
-                $share_resource->execute("insert into share_resource VALUES ('$id','$num','$name','$type','$address','$size')");
+                $upladerName=$data[5];
+                $course=$data[6];
+                $uploaderPhone=$data[7];
+                $share_resource->execute("insert into share_resource VALUES ('$id','$num','$name','$type','$address','$size','$uploaderPhone','$upladerName','$course')");
             }
         }
         private function delete($delete,$share_resource,$num){
@@ -357,13 +366,15 @@
 
         public function resource(){
             $resource=M('resource');
-            $count= $resource->count();// 查询满足要求的总记录数 $map表示查询条件
-            $Page = new \Think\Page($count,8);
+            $count=$resource->query("select distinct r_uploadername from resource");
+            $count=count($count);
+            $Page = new \Think\Page($count,10);
             $Page->setConfig('prev','上一页');
             $Page->setConfig('next','下一页');
             $show = $Page->show();// 分页显示输出
             // 进行分页数据查询
-            $allData = $resource->order('r_id asc')->limit($Page->firstRow.','.$Page->listRows)->select();
+//            $allData = $resource->order('r_id asc')->limit($Page->firstRow.','.$Page->listRows)->select();
+            $allData=$resource->query("select distinct r_uploaderphone,r_uploadername from resource limit $Page->firstRow,$Page->listRows");
             $this->assign('allData',$allData);// 赋值数据集
             $this->assign('page',$show);// 赋值分页输出
             $this->display();
@@ -451,6 +462,22 @@
             session('userID',null);
             session('userName',null);
             session('position',null);
-            $this->redirect('Login/login','','','');
+            $this->display('/Login/login');
+        }
+
+        function resourceShow(){
+            $id=$_GET['id'];
+            $resource=M('resource');
+            $values=$resource->query("select * from resource WHERE r_uploaderphone='$id'");
+            $count= count($values);// 查询满足要求的总记录数
+            $Page = new \Think\Page($count,8);
+            $Page->setConfig('prev','上一页');
+            $Page->setConfig('next','下一页');
+            $show = $Page->show();// 分页显示输出
+            // 进行分页数据查询
+            $allData = $resource->where("r_uploaderphone='$id'")->limit($Page->firstRow.','.$Page->listRows)->select();
+            $this->assign('allData',$allData);// 赋值数据集
+            $this->assign('page',$show);// 赋值分页输出
+            $this->display();
         }
     }

@@ -22,67 +22,19 @@
         <table class="table table-bordered table-hover"  style="border-color: #00a0e9;text-align: center">
             <thead>
             <tr class="info">
-                <th style="text-align: center;" title="点击排序">文件编号</th>
-                <th style="text-align: center" title="点击排序">文件名称</th>
-                <th style="text-align: center" title="点击排序">文件类型</th>
-                <th style="text-align: center" title="点击排序">文件大小</th>
-                <th style="text-align: center">在线浏览</th>
+                <th style="text-align: center;" title="点击排序">上传者ID</th>
+                <th style="text-align: center" title="点击排序">上传者姓名</th>
             </tr>
             </thead>
             <tbody>
             <volist name="allData" id="data">
                 <tr class="warning">
-                    <td><{$data.r_id}></td>
-                    <td><{$data.r_name}></td>
-                    <td><{$data.r_type}></td>
-                    <td><{$data.r_size}></td>
+                    <td><{$data.r_uploaderphone}></td>
                     <td>
-                        <switch name="data.r_type">
-                            <case value="Doc">
-                                <form action="__APP__/Home/Look/lookWord" method="post">
-                                    <input type="hidden" name="path" value="<{$data.r_name}>-><{$data.r_id}>-><{$data.r_name}>">
-                                    <button type="submit" style="background: transparent;border: none">
-                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                    </button>
-                                </form>
-                            </case>
-                            <case value="Pdf">
-                                <form action="__APP__/Home/Look/lookPdf" method="post">
-                                    <input type="hidden" name="path" value="__PUBLIC__/<{$data.r_address}>-><{$data.r_id}>-><{$data.r_name}>">
-                                    <button type="submit" style="background: transparent;border: none">
-                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                    </button>
-                                </form>
-                            </case>
-                            <case value="PPT">
-                                <form action="__APP__/Home/Look/lookPpt" method="post">
-                                    <input type="hidden" name="path" value="<{$data.r_name}>-><{$data.r_id}>-><{$data.r_name}>">
-                                    <button type="submit" style="background: transparent;border: none">
-                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                    </button>
-                                </form>
-                            </case>
-                            <case value="Execl">
-                                <form action="__APP__/Home/Look/lookExecl" method="post">
-                                    <input type="hidden" name="path" value="<{$data.r_name}>-><{$data.r_id}>-><{$data.r_name}>">
-                                    <button type="submit" style="background: transparent;border: none">
-                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                    </button>
-                                </form>
-                            </case>
-                            <case value="Video">
-                                <form action="__APP__/Home/Look/lookVideo" method="post">
-                                    <input type="hidden" name="path" value="<{$data.r_address}>-><{$data.r_id}>-><{$data.r_name}>">
-                                    <button type="submit" style="background: transparent;border: none">
-                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                    </button>
-                                </form>
-                            </case>
-                            <default />无法在线浏览
-                        </switch>
-
+                        <u style="cursor:pointer" onclick="course_show('<{$data.r_uploadername}>','__APP__/Home/Student/resourceShow?id=<{$data.r_uploaderphone}>','1200','600')" class="text-primary" >
+                            <{$data.r_uploadername}>
+                        </u>
                     </td>
-                </tr>
             </volist>
             </tbody>
         </table>
@@ -92,9 +44,9 @@
 </body>
 <load href="__PUBLIC__/lib/jquery/1.9.1/jquery.min.js"/>
 <load href="__PUBLIC__/lib/layer/2.4/layer.js"/>
+<load href="__PUBLIC__/static/h-ui.admin/js/H-ui.admin.js"/>
 <load href="__PUBLIC__/lib/datatables/1.10.0/jquery.dataTables.min.js"/>
 <script>
-
     $(document).ready(function() {
         $('.table').dataTable({
             "bPaginate": false, //翻页功能
@@ -105,5 +57,10 @@
             "bAutoWidth": false,//自动宽度
         });
     });
+
+    function course_show(title,url,w,h){
+        layer_show(title,url,w,h);
+    }
+
 </script>
 </html>

@@ -32,7 +32,7 @@
                     <li class="dropDown dropDown_hover">
                         <a href="#" class="dropDown_A"><?php echo ($username); ?><i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
-                            <li><a href="/index.php/Home/Login/login">退出</a></li>
+                            <li><a href="/index.php/Home/Assistant/back">退出</a></li>
                         </ul>
                     </li>
                 </ul>

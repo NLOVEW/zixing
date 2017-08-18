@@ -32,7 +32,7 @@
                     <li class="dropDown dropDown_hover">
                         <a href="#" class="dropDown_A"><?php echo ($username); ?><i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
-                            <li><a href="/index.php/Home/Login/login">退出</a></li>
+                            <li><a href="/index.php/Home/Manager/back">退出</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -57,6 +57,7 @@
             <dt><i class="Hui-iconfont">&#xe620;</i> 资源管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
+                    <li><a data-href="/index.php/Home/Manager/course" data-title="课程安排" href="javascript:void(0)">课程安排</a></li>
                     <li><a data-href="/index.php/Home/Manager/upload" data-title="上传资源" href="javascript:void(0)">上传资源</a></li>
                     <li><a data-href="/index.php/Home/Manager/forClass" data-title="分配资源" href="javascript:void(0)">资源分配</a></li>
                     <li><a data-href="/index.php/Home/Manager/searchResource" data-title="浏览资源" href="javascript:void(0)">浏览资源</a></li>
